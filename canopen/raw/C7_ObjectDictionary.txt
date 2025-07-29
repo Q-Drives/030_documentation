@@ -1,0 +1,1978 @@
+CANopen Object Dictionary Documenation for C7
+
+
+Index:       0x1000 - Device Type
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Device Type
+  DataType:     UNSIGNED32
+  DefaultValue: 0x20192
+  AccessType:   const
+  PDOMapping:   0
+
+Index:       0x1001 - Error Register
+DataType:    UNSIGNED8
+ObjectCode:  Variable
+Description: Bitfield with error types:
+0x01: generic error
+0x02: current error
+0x04: voltage error
+0x08: temperature error
+0x80: manufacturer error
+
+  Sub:          0x00 - Error Register
+  DataType:     UNSIGNED8
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1002 - Manufacturer status register
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - Manufacturer status register
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x1003 - Pre-defined error field
+DataType:    UNSIGNED32
+ObjectCode:  Array
+Description: Error codes:
+0x1000: generic error
+0x2300: current error
+0x3100: voltage error
+0x4200: temperature error
+0x6100: device error
+  Sub:          0x00 - Number of errors
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x01 - Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - 2nd Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x03 - 3rd Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x04 - 4th Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x05 - 5th Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x06 - 6th Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x07 - 7th Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x08 - 8th Last Error
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1005 - COB ID SYNC
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+Description: This object shall indicate the configured COB-ID of the synchronization object (SYNC). Further, it defines whether the CANopen device generates the SYNC.
+  Sub:          0x00 - COB ID SYNC
+  DataType:     UNSIGNED32
+  DefaultValue: 0x00000080
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1006 - Communication cycle period
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - Communication cycle period
+  DataType:     UNSIGNED32
+  DefaultValue: 0x00000000
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1007 - Synchronous window length
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - Synchronous window length
+  DataType:     UNSIGNED32
+  DefaultValue: 0x00000000
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1008 - Manufacturer device name
+DataType:    VISIBLE_STRING
+ObjectCode:  Variable
+  Sub:          0x00 - Manufacturer device name
+  DataType:     VISIBLE_STRING
+  DefaultValue: Q-Drives C7
+  AccessType:   const
+  PDOMapping:   0
+
+Index:       0x1009 - Manufacturer hardware version
+DataType:    VISIBLE_STRING
+ObjectCode:  Variable
+  Sub:          0x00 - Manufacturer hardware version
+  DataType:     VISIBLE_STRING
+  DefaultValue:  
+  AccessType:   const
+  PDOMapping:   0
+
+Index:       0x100a - Manufacturer software version
+DataType:    VISIBLE_STRING
+ObjectCode:  Variable
+  Sub:          0x00 - Manufacturer software version
+  DataType:     VISIBLE_STRING
+  DefaultValue:  
+  AccessType:   const
+  PDOMapping:   0
+
+Index:       0x1010 - Store parameters
+DataType:    UNSIGNED32
+ObjectCode:  Array
+Description: The object 0x1010 has to be written with the value "save" (0x65766173) to trigger saving, otherwise an error is reported.
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Save all parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Save communication parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Save application parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Save manufacturer parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1011 - Restore default parameters
+DataType:    UNSIGNED32
+ObjectCode:  Array
+Description: The object 0x1011 has to be written with the value "load" (0x64616f6c) to trigger clearing, otherwise an error is reported.
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Restore all default parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Restore communication default parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Restore application default parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Restore manufacturer default parameters
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1014 - COB ID EMCY
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - COB ID EMCY
+  DataType:     UNSIGNED32
+  DefaultValue: $NODEID+0x80
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1015 - Inhibit Time Emergency
+DataType:    UNSIGNED16
+ObjectCode:  Variable
+  Sub:          0x00 - Inhibit Time Emergency
+  DataType:     UNSIGNED16
+  DefaultValue: 0x0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1017 - Producer Heartbeat Time
+DataType:    UNSIGNED16
+ObjectCode:  Variable
+  Sub:          0x00 - Producer Heartbeat Time
+  DataType:     UNSIGNED16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1018 - Identity Object
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Vendor Id
+  DataType:     UNSIGNED32
+  DefaultValue: 0x5b8
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - Product Code
+  DataType:     UNSIGNED32
+  DefaultValue: 0xc7
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x03 - Revision number
+  DataType:     UNSIGNED32
+  DefaultValue: 0x1
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x04 - Serial number
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1019 - Synchronous counter overflow value
+DataType:    UNSIGNED8
+ObjectCode:  Variable
+  Sub:          0x00 - Synchronous counter overflow value
+  DataType:     UNSIGNED8
+  DefaultValue: 0x00
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1020 - Verify configuration
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Configuration date
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Configuration time
+  DataType:     UNSIGNED32
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1021 - Store EDS
+DataType:    DOMAIN
+ObjectCode:  Variable
+  Sub:          0x00 - Store EDS
+  DataType:     DOMAIN
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1022 - Store format
+DataType:    UNSIGNED8
+ObjectCode:  Variable
+  Sub:          0x00 - Store format
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1029 - Error behaviour
+DataType:    UNSIGNED8
+ObjectCode:  Array
+  Sub:          0x00 - Nr of Error Classes
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Communication Error
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Specific Error Class 
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1030 - Version information
+DataType:    UNSIGNED32
+ObjectCode:  Array
+Description: This data object shall list all implemented CiA documents.
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Version information 1
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - Version information 2
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1032 - Active error list
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Error Event 1
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - Error Event 2
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x03 - Error Event 3
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x04 - Error Event 4
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1200 - SDO server parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - COB-ID client to server
+  DataType:     UNSIGNED32
+  DefaultValue: $NODEID+0x600
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - COB-ID server to client
+  DataType:     UNSIGNED32
+  DefaultValue: $NODEID+0x580
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x1400 - Receive PDO Communication Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - COB ID
+  DataType:     UNSIGNED32
+  DefaultValue: $NODEID+0x200
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Transmission Type
+  DataType:     UNSIGNED8
+  DefaultValue: 255
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1600 - Receive PDO Mapping Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x01 - Mapping Entry 1 - Controlword
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60400010
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Mapping Entry 2 - Target velocity (vl)
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60420010
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Mapping Entry 3 - Mode of Operation
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60600008
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1800 - Transmit PDO Communication Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - COB ID
+  DataType:     UNSIGNED32
+  DefaultValue: $NODEID+0x180
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Transmission Type
+  DataType:     UNSIGNED8
+  DefaultValue: 255
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Inhibit Time
+  DataType:     UNSIGNED16
+  DefaultValue: 0x0000
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Compatibility Entry
+  DataType:     UNSIGNED8
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Event Timer
+  DataType:     UNSIGNED16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1a00 - Transmit PDO Mapping Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x01 - Mapping Entry 1 - Statusword
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60410010
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Mapping Entry 2 - Actual velocity (vl)
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60440010
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Mapping Entry 3 - Modes of Operation Display
+  DataType:     UNSIGNED32
+  DefaultValue: 0x60610008
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x1f50 - Download Program Data
+DataType:    DOMAIN
+ObjectCode:  Array
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Program Area
+  DataType:     DOMAIN
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Modified X2C application binary
+  Sub:          0x02 - CANopen Configuration
+  DataType:     DOMAIN
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Basic CANopen communication configuration which will be stored in non-volatile memory.
+
+Byte 0: FD mode (Flag to define whether CANopen FD or CANopen classic mode should be intialized at startup)
+Byte 1: Node-ID (1..127)
+Byte 2: Low byte of bitrate in kbps
+Byte 3: High byte of bitrate in kbps
+
+Index:       0x1f51 - Program Control
+DataType:    UNSIGNED8
+ObjectCode:  Array
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Program Control
+  DataType:     UNSIGNED8
+  AccessType:   rw
+  PDOMapping:   0
+  Description: 0: Stop application
+1: Start application
+2: Erase non-volatile memory (=factory reset), optional
+3: Clear application <- required state for device becoming programmable
+
+Index:       0x1f57 - Flash Status Identification
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Number of entries
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Flash status identification
+  DataType:     UNSIGNED32
+  AccessType:   ro
+  PDOMapping:   0
+  Description: 0: Valid application
+2: Invalid application
+
+Index:       0x2000 - Hardware Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Rshunt
+  DataType:     REAL32
+  DefaultValue: 200e-6
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Shunt resistor value [Ohm]
+  Sub:          0x02 - GainCSA
+  DataType:     INTEGER16
+  DefaultValue: 20
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - IdentCurrent
+  DataType:     REAL32
+  DefaultValue: 5
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Enable CAN Termination
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2001 - Scaling Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 3
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - SpeedLimitAiDi
+  DataType:     REAL32
+  DefaultValue: 3000
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Speed scaling for analog & digital input [rpm]
+  Sub:          0x02 - AinVoltageForMaxSpeed
+  DataType:     REAL32
+  DefaultValue: 5
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Voltage scaling for analog input [V]
+  Sub:          0x03 - AinMinVoltageThreshold
+  DataType:     REAL32
+  DefaultValue: 0.5
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Deadband of Ain voltage in V. Voltages below this value are ignored by the controller.
+
+Index:       0x2010 - Motor Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - PolePairs
+  DataType:     INTEGER16
+  DefaultValue: 5
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Bemf
+  DataType:     REAL32
+  DefaultValue: 0.0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - RatedSpeed
+  DataType:     REAL32
+  DefaultValue: 4000.0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - InvertDirection
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2011 - Brake Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Mode
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - PeakDuty
+  DataType:     REAL32
+  DefaultValue: 1.0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - HoldDuty
+  DataType:     REAL32
+  DefaultValue: 0.7
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - PeakTime
+  DataType:     REAL32
+  DefaultValue: 1.0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - BrakeThresholdCurrent
+  DataType:     REAL32
+  DefaultValue: 0.24
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2012 - Angular Sensor Parameter
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - SensorType
+  DataType:     INTEGER16
+  DefaultValue: 2
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - InvertSensor
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - AngleOffset
+  DataType:     REAL32
+  DefaultValue: 0.0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - AngleCompensation
+  DataType:     REAL32
+  DefaultValue: 1.15
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Phi2SpeedFc
+  DataType:     REAL32
+  DefaultValue: 200.0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2013 - Encoder Sensor
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 3
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Resolution
+  DataType:     INTEGER16
+  DefaultValue: 256
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - UsePwm
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - PwmFrequency
+  DataType:     REAL32
+  DefaultValue: 1000
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2014 - Hall Sensor
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - nInterpol
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - nSync
+  DataType:     REAL32
+  DefaultValue: 5000
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Kp
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Ki
+  DataType:     REAL32
+  DefaultValue: 10
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - HallMapping
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Assign physical hall signals to control inputs. This parameter is just active when Block commutation is used! Normally just values from 0 to 5 are relevant.
+ 0: Hall mapping is ABC->ABC.
+ 1: Hall mapping is ABC->CAB.
+ 2: Hall mapping is ABC->BCA.
+ 3: Hall mapping is ABC->CBA.
+ 4: Hall mapping is ABC->BAC.
+ 5: Hall mapping is ABC->ACB.
+ 6: Hall mapping is ABC->inverted(ABC).
+ 7: Hall mapping is ABC->inverted(CAB).
+ 8: Hall mapping is ABC->inverted(BCA).
+ 9: Hall mapping is ABC->inverted(CBA).
+10: Hall mapping is ABC->inverted(BAC).
+11: Hall mapping is ABC->inverted(ACB)
+
+Index:       0x2015 - Sin/Cos Sensor
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 7
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - SensorSetup
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - SC_P
+  DataType:     INTEGER16
+  DefaultValue: 1551
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - SC_N
+  DataType:     INTEGER16
+  DefaultValue: 1551
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - OffsetSin
+  DataType:     INTEGER16
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - OffsetCos
+  DataType:     INTEGER16
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - GainSin
+  DataType:     REAL32
+  DefaultValue: 0.0002442
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x07 - GainCos
+  DataType:     REAL32
+  DefaultValue: 0.0002442
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2016 - Temperature Sensor
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Motor Temperature
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - PCB Temperature
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2017 - STO Status
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - STO1 Monitor 12V
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - STO1 Monitor 48V
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - STO2 Monitor
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - STO1 Input
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - STO2 Input
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2020 - Voltage Limits
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - DcLinkOv
+  DataType:     REAL32
+  DefaultValue: 57.6
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - DcLinkUv
+  DataType:     REAL32
+  DefaultValue: 18
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2021 - Current Limits
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 5
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - OcFast
+  DataType:     REAL32
+  DefaultValue: 150
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - OcSlow
+  DataType:     REAL32
+  DefaultValue: 120
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - OcFastTime
+  DataType:     REAL32
+  DefaultValue: 0.002
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - OcSlowTime
+  DataType:     REAL32
+  DefaultValue: 0.1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - MotorControlCurrentLimit
+  DataType:     REAL32
+  DefaultValue: 10
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2022 - Temperature Limits
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 3
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - EnMotorTempError
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - MotorTempMax
+  DataType:     REAL32
+  DefaultValue: 80.0
+  AccessType:   rw
+  PDOMapping:   0
+  Description: Motor over temperature limit in °C
+  Sub:          0x03 - PcbTempMax
+  DataType:     REAL32
+  DefaultValue: 80
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2023 - Control Error Limits
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - AllowedSpeedError
+  DataType:     REAL32
+  DefaultValue: 200
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - AllowedSpeedErrorTime
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - AllowedPositionError
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - AllowedPositionErrorTime
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2024 - I2t
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 3
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - NominalCurrent
+  DataType:     REAL32
+  DefaultValue: 40
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - PeakCurrent
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - PeakCurrentTime
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2030 - Current Controller
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Kp_d
+  DataType:     REAL32
+  DefaultValue: 0.07
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Ki_d
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Kp_q
+  DataType:     REAL32
+  DefaultValue: 0.07
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Ki_q
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2031 - Speed Controller
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Kp
+  DataType:     REAL32
+  DefaultValue: 0.005
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Ki
+  DataType:     REAL32
+  DefaultValue: 0.05
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Kd
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Fc
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2032 - Position Controller
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Kp
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Ki
+  DataType:     REAL32
+  DefaultValue: 100
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Kd
+  DataType:     REAL32
+  DefaultValue: 0.5
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Fc
+  DataType:     REAL32
+  DefaultValue: 200
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2033 - Homing
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 6
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - SpeedSwitch
+  DataType:     REAL32
+  DefaultValue: 300
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - SpeedZero
+  DataType:     REAL32
+  DefaultValue: 150
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - SpeedThreshold
+  DataType:     REAL32
+  DefaultValue: 20
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - CurrentThreshold
+  DataType:     REAL32
+  DefaultValue: 3
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Timeout
+  DataType:     UNSIGNED16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - TorqueThreshold
+  DataType:     UNSIGNED16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2040 - Control Settings
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 6
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - DisableControlAtQsp
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - DisableControlAtQspDelayTime
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - DisableControlSpeedThres
+  DataType:     REAL32
+  DefaultValue: 50
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - ShortMotorWhenPwmOff
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - PreChargeMapping
+  DataType:     INTEGER8
+  DefaultValue: 4
+  AccessType:   rw
+  PDOMapping:   0
+  Description: 0: derive from FIState
+1: DI1 is used as reference
+2: DI2 is used as reference
+3: DI3 is used as reference
+4: DI4 is used as reference
+5: DI5 is used as reference
+  Sub:          0x06 - ControlMode
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Description: 0: Sine commutation
+1: Block commutation
+
+Index:       0x2041 - Speed Trajectory
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 7
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - acc_delta_speed
+  DataType:     REAL32
+  DefaultValue: 1500
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - acc_delta_time
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - dec_delta_speed
+  DataType:     REAL32
+  DefaultValue: 10000
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - dec_delta_time
+  DataType:     REAL32
+  DefaultValue: 1
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - JerkMax
+  DataType:     REAL32
+  DefaultValue: 15000
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - Upper Limit Dead Zone
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x07 - Lower Limit Dead Zone
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2042 - Position Trajectory
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Upper Limit Dead Zone
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Lower Limit Dead Zone
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2043 - Input Functions
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 12
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Function DI1
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Function DI2
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Function DI3
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Function DI4
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Function DI5
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - Function DI6
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x07 - Polarity DI1
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x08 - Polarity DI2
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x09 - Polarity DI3
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0a - Polarity DI4
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0b - Polarity DI5
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0c - Polarity DI6
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2044 - Speed Select Table
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 16
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Speed Select 1
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Speed Select 2
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Speed Select 3
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Speed Select 4
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Speed Select 5
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - Speed Select 6
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x07 - Speed Select 7
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x08 - Speed Select 8
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x09 - Speed Select 9
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0a - Speed Select 10
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0b - Speed Select 11
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0c - Speed Select 12
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0d - Speed Select 13
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0e - Speed Select 14
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0f - Speed Select 15
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x10 - Speed Select 16
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2045 - Position Select Table
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 16
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Position Select 1
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x02 - Position Select 2
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x03 - Position Select 3
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x04 - Position Select 4
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x05 - Position Select 5
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x06 - Position Select 6
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x07 - Position Select 7
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x08 - Position Select 8
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x09 - Position Select 9
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0a - Position Select 10
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0b - Position Select 11
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0c - Position Select 12
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0d - Position Select 13
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0e - Position Select 14
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x0f - Position Select 15
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+  Sub:          0x10 - Position Select 16
+  DataType:     REAL32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x2046 - Internal Status
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 18
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - Total On Time
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - Total Errors Occurred
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x03 - Error ID 1
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x04 - Error Time 1
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x05 - Error ID 2
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x06 - Error Time 2
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x07 - Error ID 3
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x08 - Error Time 3
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x09 - Error ID 4
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0a - Error Time 4
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0b - Error ID 5
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0c - Error Time 5
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0d - Error ID 6
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0e - Error Time 6
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x0f - Error ID 7
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x10 - Error Time 7
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x11 - Error ID 8
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x12 - Error Time 8
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x5000 - CANopen Configuration
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 1
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - FDMode
+  DataType:     UNSIGNED8
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x6040 - controlword
+DataType:    UNSIGNED16
+ObjectCode:  Variable
+  Sub:          0x00 - controlword
+  DataType:     UNSIGNED16
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6041 - statusword
+DataType:    UNSIGNED16
+ObjectCode:  Variable
+  Sub:          0x00 - statusword
+  DataType:     UNSIGNED16
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6042 - vl_target_velocity
+DataType:    INTEGER16
+ObjectCode:  Variable
+  Sub:          0x00 - vl_target_velocity
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6043 - vl_velocity_demand
+DataType:    INTEGER16
+ObjectCode:  Variable
+  Sub:          0x00 - vl_velocity_demand
+  DataType:     INTEGER16
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6044 - vl_velocity_actual_value
+DataType:    INTEGER16
+ObjectCode:  Variable
+  Sub:          0x00 - vl_velocity_actual_value
+  DataType:     INTEGER16
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6046 - vl_velocity_min_max_amount
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   const
+  PDOMapping:   0
+  Sub:          0x01 - vl_velocity_min_amount
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - vl_velocity_max_amount
+  DataType:     UNSIGNED32
+  DefaultValue: 32767
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6048 - vl_velocity_acceleration
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   const
+  PDOMapping:   0
+  Sub:          0x01 - delta_speed
+  DataType:     UNSIGNED32
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - delta_time
+  DataType:     UNSIGNED16
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6049 - vl_velocity_deceleration
+DataType:    UNSIGNED8
+ObjectCode:  Record
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   const
+  PDOMapping:   0
+  Sub:          0x01 - delta_speed
+  DataType:     UNSIGNED32
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - delta_time
+  DataType:     UNSIGNED16
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6060 - modes_of_operation
+DataType:    INTEGER8
+ObjectCode:  Variable
+  Sub:          0x00 - modes_of_operation
+  DataType:     INTEGER8
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6061 - modes_of_operation_display
+DataType:    INTEGER8
+ObjectCode:  Variable
+  Sub:          0x00 - modes_of_operation_display
+  DataType:     INTEGER8
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6064 - position_actual_value
+DataType:    INTEGER32
+ObjectCode:  Variable
+  Sub:          0x00 - position_actual_value
+  DataType:     INTEGER32
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6079 - dc_link_circuit_voltage
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - dc_link_circuit_voltage
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x607a - position_target_value
+DataType:    INTEGER32
+ObjectCode:  Variable
+  Sub:          0x00 - position_target_value
+  DataType:     INTEGER32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x607c - homing offset
+DataType:    INTEGER32
+ObjectCode:  Variable
+  Sub:          0x00 - homing offset
+  DataType:     INTEGER32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x607d - software position limit
+DataType:    INTEGER32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   const
+  PDOMapping:   0
+  Sub:          0x01 - min position
+  DataType:     INTEGER32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - max position
+  DataType:     INTEGER32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x607f - max profile velocity
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - max profile velocity
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x6080 - max motor speed
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - max motor speed
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x6081 - profile velocity
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - profile velocity
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6083 - profile acceleration
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - profile acceleration
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6084 - profile deceleration
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - profile deceleration
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6086 - profile type
+DataType:    INTEGER16
+ObjectCode:  Variable
+  Sub:          0x00 - profile type
+  DataType:     INTEGER16
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x6093 - position factor
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - numerator
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - feed constant
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6094 - velocity encoder factor
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - numerator
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - divisor
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6097 - acceleration factor
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - numerator
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+  Sub:          0x02 - divisor
+  DataType:     UNSIGNED32
+  DefaultValue: 1
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6098 - homing method
+DataType:    INTEGER8
+ObjectCode:  Variable
+  Sub:          0x00 - homing method
+  DataType:     INTEGER8
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x6099 - homing speed
+DataType:    UNSIGNED32
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 2
+  AccessType:   const
+  PDOMapping:   0
+  Sub:          0x01 - speed switch
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   1
+  Sub:          0x02 - speed zero
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   ro
+  PDOMapping:   1
+
+Index:       0x609a - homing acceleration
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - homing acceleration
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rww
+  PDOMapping:   1
+
+Index:       0x60c5 - max acceleration
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - max acceleration
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x60c6 - max deceleration
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - max deceleration
+  DataType:     UNSIGNED32
+  DefaultValue: 0
+  AccessType:   rw
+  PDOMapping:   0
+
+Index:       0x60e3 - supported homing methods
+DataType:    INTEGER8
+ObjectCode:  Array
+  Sub:          0x00 - Highest sub-index supported
+  DataType:     UNSIGNED8
+  DefaultValue: 9
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x01 - 1st supported homing method
+  DataType:     INTEGER8
+  DefaultValue: -3
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x02 - 2nd supported homing method
+  DataType:     INTEGER8
+  DefaultValue: -4
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x03 - 3rd supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 17
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x04 - 4th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 18
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x05 - 5th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 19
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x06 - 6th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 20
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x07 - 7th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 21
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x08 - 8th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 22
+  AccessType:   ro
+  PDOMapping:   0
+  Sub:          0x09 - 9th supported homing method
+  DataType:     INTEGER8
+  DefaultValue: 37
+  AccessType:   ro
+  PDOMapping:   0
+
+Index:       0x6502 - supported drive modes
+DataType:    UNSIGNED32
+ObjectCode:  Variable
+  Sub:          0x00 - supported drive modes
+  DataType:     UNSIGNED32
+  DefaultValue: 0x23
+  AccessType:   ro
+  PDOMapping:   0

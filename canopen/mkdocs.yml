@@ -1,0 +1,9 @@
+site_name: Q-Drives CANopen Documentation
+nav:
+  - Home: introduction.md
+  - CANopen: canopen.md
+  - Network Management: network-management.md
+  - Object Dictionary: object-dictionary.md
+  - About: about.md
+dev_addr: 127.0.0.1:9090
+theme: readthedocs

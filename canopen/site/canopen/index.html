@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>CANopen - Q-Drives CANopen Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CANopen";
+        var mkdocs_page_input_path = "canopen.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Q-Drives CANopen Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../introduction/">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">CANopen</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction-overview">Introduction &amp; Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-canopen">What is CANopen?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-drives-c7-implementation">Q-Drives C7 Implementation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#standards-compliance">Standards Compliance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#physical-layer-network-setup">Physical Layer &amp; Network Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#can-bus-topology">CAN Bus Topology</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#network-architecture">Network Architecture</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#network-termination">Network Termination</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bus-length-limitations">Bus Length Limitations</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#standard-bus-length-specifications">Standard Bus Length Specifications</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stub-lines-drop-lines">Stub Lines (Drop Lines)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#stub-line-guidelines">Stub Line Guidelines</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiport-taps">Multiport Taps</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#multiport-tap-specifications">Multiport Tap Specifications</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cable-requirements">Cable Requirements</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#recommended-cable-specifications">Recommended Cable Specifications</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#canopen-communication-model">CANopen Communication Model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#device-model-overview">Device Model Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#object-dictionary-structure">Object Dictionary Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#communication-types">Communication Types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#event-driven-communication">Event-Driven Communication</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cyclic-synchronous-communication">Cyclic Synchronous Communication</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#polled-communication-on-demand">Polled Communication (On-Demand)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transmission-types">Transmission Types</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#canopen-objects-services">CANopen Objects &amp; Services</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#network-management-nmt">Network Management (NMT)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#service-data-objects-sdo">Service Data Objects (SDO)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#process-data-objects-pdo">Process Data Objects (PDO)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pdo-usage-requirements">PDO Usage Requirements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#synchronization-object-sync">Synchronization Object (SYNC)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#time-stamp-object-time">Time Stamp Object (TIME)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#emergency-object-emcy">Emergency Object (EMCY)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-setup">Configuration &amp; Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-configuration">Initial Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#layer-setting-services-lss">Layer Setting Services (LSS)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#canopen-fd-vs-classic-mode">CANopen FD vs Classic Mode</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#mode-selection">Mode Selection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mode-characteristics">Mode Characteristics</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration-storage">Configuration Storage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#technical-specifications">Technical Specifications</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bus-length-vs-baud-rate">Bus Length vs Baud Rate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stub-line-specifications">Stub Line Specifications</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiport-tap-specifications_1">Multiport Tap Specifications</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../network-management/">Network Management</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../object-dictionary/">Object Dictionary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Q-Drives CANopen Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">CANopen</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="canopen-protocol-implementation">CANopen Protocol Implementation</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#introduction--overview">Introduction &amp; Overview</a></li>
+<li><a href="#what-is-canopen">What is CANopen?</a></li>
+<li><a href="#q-drives-c7-implementation">Q-Drives C7 Implementation</a></li>
+<li><a href="#standards-compliance">Standards Compliance</a></li>
+<li><a href="#document-version-information">Document Version Information</a></li>
+<li><a href="#physical-layer--network-setup">Physical Layer &amp; Network Setup</a></li>
+<li><a href="#can-bus-topology">CAN Bus Topology</a></li>
+<li><a href="#network-termination">Network Termination</a></li>
+<li><a href="#bus-length-limitations">Bus Length Limitations</a></li>
+<li><a href="#stub-lines-drop-lines">Stub Lines (Drop Lines)</a></li>
+<li><a href="#multiport-taps">Multiport Taps</a></li>
+<li><a href="#cable-requirements">Cable Requirements</a></li>
+<li><a href="#canopen-communication-model">CANopen Communication Model</a></li>
+<li><a href="#device-model-overview">Device Model Overview</a></li>
+<li><a href="#object-dictionary-structure">Object Dictionary Structure</a></li>
+<li><a href="#communication-types">Communication Types</a></li>
+<li><a href="#transmission-types">Transmission Types</a></li>
+<li><a href="#canopen-objects--services">CANopen Objects &amp; Services</a></li>
+<li><a href="#network-management-nmt">Network Management (NMT)</a></li>
+<li><a href="#service-data-objects-sdo">Service Data Objects (SDO)</a></li>
+<li><a href="#process-data-objects-pdo">Process Data Objects (PDO)</a></li>
+<li><a href="#synchronization-object-sync">Synchronization Object (SYNC)</a></li>
+<li><a href="#time-stamp-object-time">Time Stamp Object (TIME)</a></li>
+<li><a href="#emergency-object-emcy">Emergency Object (EMCY)</a></li>
+<li><a href="#configuration--setup">Configuration &amp; Setup</a></li>
+<li><a href="#initial-configuration">Initial Configuration</a></li>
+<li><a href="#layer-setting-services-lss">Layer Setting Services (LSS)</a></li>
+<li><a href="#canopen-fd-vs-classic-mode">CANopen FD vs Classic Mode</a></li>
+<li><a href="#configuration-storage">Configuration Storage</a></li>
+<li><a href="#technical-specifications">Technical Specifications</a></li>
+<li><a href="#bus-length-vs-baud-rate">Bus Length vs Baud Rate</a></li>
+<li><a href="#stub-line-specifications">Stub Line Specifications</a></li>
+<li><a href="#multiport-tap-specifications">Multiport Tap Specifications</a></li>
+</ul>
+<h2 id="introduction-overview">Introduction &amp; Overview</h2>
+<h3 id="what-is-canopen">What is CANopen?</h3>
+<p>CANopen is a widely adopted communication protocol based on the CAN (Controller Area Network) bus system, extensively used in industrial automation applications. It provides standardized communication methods for devices in manufacturing, automotive, and various other industrial environments.</p>
+<p><strong>Key Characteristics:</strong> <br>
+- <strong>Standardized Protocol</strong>: Developed by CAN in Automation (CiA) organization <br>
+- <strong>Multi-Master Capability</strong>: Supports multiple masters on the same network <br>
+- <strong>Real-Time Communication</strong>: Deterministic data exchange for time-critical applications <br>
+- <strong>Robust Design</strong>: Differential signaling provides excellent EMI resistance <br>
+- <strong>Scalable Architecture</strong>: Supports networks from simple point-to-point to complex multi-node systems</p>
+<h3 id="q-drives-c7-implementation">Q-Drives C7 Implementation</h3>
+<p>The Q-Drives C7 controller implements CANopen according to industry standards, providing seamless integration with existing industrial automation systems.</p>
+<p><strong>Implementation Features:</strong> <br>
+- <strong>Full CiA 301 Compliance</strong>: Complete application layer and communication profile <br>
+- <strong>CiA 402 Device Profile</strong>: Specialized for drives and motion control applications <br>
+- <strong>Flexible Configuration</strong>: Supports both CANopen Classic and CANopen FD modes <br>
+- <strong>Comprehensive Object Dictionary</strong>: Over 100 standardized and manufacturer-specific objects <br>
+- <strong>Multiple PDO Support</strong>: Up to 8 independent PDO mappings for efficient data exchange <br></p>
+<h3 id="standards-compliance">Standards Compliance</h3>
+<p>The C7 controller CANopen implementation adheres to the following international standards:</p>
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Description</th>
+<th>Implementation Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CiA 301</strong></td>
+<td>CANopen application layer and communication profile</td>
+<td>Full compliance</td>
+</tr>
+<tr>
+<td><strong>CiA 402</strong></td>
+<td>CANopen device profile for drives and motion control</td>
+<td>Complete implementation</td>
+</tr>
+<tr>
+<td><strong>ISO 11898</strong></td>
+<td>CAN physical layer specification</td>
+<td>Hardware compliant</td>
+</tr>
+<tr>
+<td><strong>EN 50325-4</strong></td>
+<td>Industrial communication - CANopen</td>
+<td>Certified compatible</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="physical-layer-network-setup">Physical Layer &amp; Network Setup</h2>
+<h3 id="can-bus-topology">CAN Bus Topology</h3>
+<p>CAN operates as a 2-wire bus system where all participants are connected in parallel. The bus uses differential signaling to achieve excellent noise immunity in industrial environments.</p>
+<h4 id="network-architecture">Network Architecture</h4>
+<pre><code>node 1    node 2    ...    node n
+  |         |               |
+  |---------|---------------|
+           CAN Bus Line
+</code></pre>
+<p><strong>Key Requirements:</strong> <br>
+- <strong>Parallel Connection</strong>: All devices connect to the same two-wire bus <br>
+- <strong>Differential Signaling</strong>: CAN_H and CAN_L provide robust communication <br>
+- <strong>Linear Topology</strong>: Avoid star configurations or loops <br>
+- <strong>Proper Termination</strong>: Essential for signal integrity <br></p>
+<h3 id="network-termination">Network Termination</h3>
+<blockquote>
+<p><strong>⚠️ Critical Requirement</strong></p>
+<p>The CAN bus <strong>must</strong> be terminated with 120Ω resistors at both ends, regardless of cable length. This termination prevents signal reflections that can cause communication errors.</p>
+</blockquote>
+<p><strong>Termination Rules:</strong> <br>
+- ✅ <strong>Required</strong>: 120Ω termination at each end of the bus <br>
+- ✅ <strong>Always Needed</strong>: Even for very short cable lengths <br>
+- ❌ <strong>Never</strong>: Terminate stub lines or intermediate connections <br>
+- ⚠️ <strong>Important</strong>: Use precision resistors (1% tolerance recommended) <br></p>
+<h3 id="bus-length-limitations">Bus Length Limitations</h3>
+<p>The maximum bus length is primarily limited by signal propagation delay. The CAN multi-master arbitration process requires that signals arrive at all nodes quasi-simultaneously (before sampling within a bit time).</p>
+<h4 id="standard-bus-length-specifications">Standard Bus Length Specifications</h4>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Maximum Bus Length</th>
+<th>Typical Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>&lt; 20m</td>
+<td>High-speed local networks</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>&lt; 100m</td>
+<td>Standard industrial networks</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>&lt; 250m</td>
+<td>Medium-range applications</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>&lt; 500m</td>
+<td>Extended industrial networks</td>
+</tr>
+<tr>
+<td><strong>50 kbit/s</strong></td>
+<td>&lt; 1000m</td>
+<td>Long-distance applications</td>
+</tr>
+<tr>
+<td><strong>20 kbit/s</strong></td>
+<td>&lt; 2500m</td>
+<td>Very long networks</td>
+</tr>
+<tr>
+<td><strong>10 kbit/s</strong></td>
+<td>&lt; 5000m</td>
+<td>Maximum distance applications</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📝 Note</strong>: Literature often states 40m for 1 Mbit/s networks. However, this doesn't apply to networks with optically isolated CAN controllers. Worst-case calculations with optocouplers yield 5m at 1 Mbit/s, though 20m is typically achievable in practice.</p>
+<p><strong>⚠️ Important</strong>: For bus lengths over 1000m, CAN repeaters may be necessary to maintain signal integrity.</p>
+</blockquote>
+<h3 id="stub-lines-drop-lines">Stub Lines (Drop Lines)</h3>
+<p>Stub lines are short cable branches that connect individual devices to the main bus line. While they can cause signal reflections, they are generally acceptable when properly designed.</p>
+<h4 id="stub-line-guidelines">Stub Line Guidelines</h4>
+<p>Reflections from stub lines are typically uncritical if they settle completely before the sampling point. With standard bit timing settings used in bus couplers, the following stub line lengths are permissible:</p>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Max Single Stub Length</th>
+<th>Max Total Stub Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>&lt; 1m</td>
+<td>&lt; 5m</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>&lt; 5m</td>
+<td>&lt; 25m</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>&lt; 10m</td>
+<td>&lt; 50m</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>&lt; 20m</td>
+<td>&lt; 100m</td>
+</tr>
+<tr>
+<td><strong>50 kbit/s</strong></td>
+<td>&lt; 50m</td>
+<td>&lt; 250m</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>⚠️ Warning</strong>: Stub lines must never be terminated with resistors.</p>
+</blockquote>
+<h3 id="multiport-taps">Multiport Taps</h3>
+<p>When using passive multiport distributors, shorter stub line lengths must be maintained to ensure proper signal integrity.</p>
+<h4 id="multiport-tap-specifications">Multiport Tap Specifications</h4>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Max Stub Length (Multiport)</th>
+<th>Max Trunk Line Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>&lt; 0.3m</td>
+<td>&lt; 25m</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>&lt; 1.2m</td>
+<td>&lt; 66m</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>&lt; 2.4m</td>
+<td>&lt; 120m</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>&lt; 4.8m</td>
+<td>&lt; 310m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cable-requirements">Cable Requirements</h3>
+<p>Proper cable selection is crucial for reliable CAN communication.</p>
+<h4 id="recommended-cable-specifications">Recommended Cable Specifications</h4>
+<p><strong>Primary Requirements:</strong> <br>
+- <strong>Cable Type</strong>: Twisted pair, shielded (2x2 conductors) <br>
+- <strong>Characteristic Impedance</strong>: 108-132 Ω <br>
+- <strong>Shield</strong>: Overall screen for EMI protection <br>
+- <strong>Conductor</strong>: Minimum 0.25 mm² cross-section <br></p>
+<p><strong>Optional Considerations:</strong> <br>
+- <strong>CAN Ground Connection</strong>: Second pair can be omitted for small networks with common power supply <br>
+- <strong>Cable Length</strong>: Consider voltage drop for power-over-bus applications <br>
+- <strong>Environmental Rating</strong>: Select appropriate jacket material for installation environment <br></p>
+<hr />
+<h2 id="canopen-communication-model">CANopen Communication Model</h2>
+<h3 id="device-model-overview">Device Model Overview</h3>
+<p>CANopen consists of a protocol definition (communication profile) and device profiles that standardize data content for specific device classes. This layered approach ensures interoperability between devices from different manufacturers.</p>
+<p><strong>Architecture Components:</strong> <br>
+- <strong>Communication Profile</strong>: Protocol definition and message formats <br>
+- <strong>Device Profiles</strong>: Standardized data content for device classes <br>
+- <strong>Object Dictionary</strong>: Structured parameter and data storage <br>
+- <strong>Communication Objects</strong>: Different message types for various purposes <br></p>
+<h3 id="object-dictionary-structure">Object Dictionary Structure</h3>
+<p>The CANopen device parameters and process data are organized in an Object Dictionary, providing structured access to all device functionality.</p>
+<p><strong>Object Dictionary Features:</strong> <br>
+- <strong>Hierarchical Organization</strong>: Objects organized by index and sub-index <br>
+- <strong>Standardized Access</strong>: Uniform method for parameter configuration <br>
+- <strong>Data Type Definition</strong>: Consistent data representation across devices <br>
+- <strong>Access Control</strong>: Read-only, write-only, and read-write permissions <br></p>
+<blockquote>
+<p><strong>📖 Reference</strong>: For complete Object Dictionary details, see <a href="../object-dictionary/">Object Dictionary</a></p>
+</blockquote>
+<h3 id="communication-types">Communication Types</h3>
+<p>CANopen defines several communication types for input and output data (Process Data Objects):</p>
+<h4 id="event-driven-communication">Event-Driven Communication</h4>
+<ul>
+<li><strong>Behavior</strong>: Messages sent immediately when data changes</li>
+<li><strong>Advantage</strong>: Efficient bandwidth usage, immediate response</li>
+<li><strong>Use Case</strong>: Status changes, alarm conditions, sporadic data</li>
+<li><strong>Characteristic</strong>: Only changes transmitted, not continuous polling</li>
+</ul>
+<h4 id="cyclic-synchronous-communication">Cyclic Synchronous Communication</h4>
+<ul>
+<li><strong>Behavior</strong>: SYNC message triggers synchronized data exchange</li>
+<li><strong>Advantage</strong>: Deterministic timing, coordinated network behavior  </li>
+<li><strong>Use Case</strong>: Real-time control applications, coordinated motion</li>
+<li><strong>Characteristic</strong>: All devices synchronized to common time base</li>
+</ul>
+<h4 id="polled-communication-on-demand">Polled Communication (On-Demand)</h4>
+<ul>
+<li><strong>Behavior</strong>: Data transmitted only when specifically requested</li>
+<li><strong>Advantage</strong>: Full master control over communication timing</li>
+<li><strong>Use Case</strong>: Diagnostic data, configuration parameters</li>
+<li><strong>Characteristic</strong>: Client-server model with explicit requests</li>
+</ul>
+<h3 id="transmission-types">Transmission Types</h3>
+<p>The desired communication type is configured using the <strong>Transmission Type</strong> parameter in PDO configuration objects.</p>
+<p><strong>Configuration Values:</strong> <br>
+- <strong>0</strong>: SYNC-triggered (synchronous) <br>
+- <strong>1-240</strong>: SYNC with event counter <br>
+- <strong>254</strong>: Asynchronous event-driven <br>
+- <strong>255</strong>: Asynchronous polled/on-demand <br></p>
+<hr />
+<h2 id="canopen-objects-services">CANopen Objects &amp; Services</h2>
+<h3 id="network-management-nmt">Network Management (NMT)</h3>
+<p>Network Management follows a master-slave structure requiring one CANopen device to assume the role of CANopen Master, with all other devices operating as NMT Slaves.</p>
+<p><strong>Network Roles:</strong> <br>
+- <strong>NMT Master</strong>: Controls network startup, state transitions, error handling <br>
+- <strong>NMT Slaves</strong>: Respond to master commands, report status, execute state changes <br>
+- <strong>Node Addressing</strong>: Each slave has unique Node-ID in range [1..127] <br></p>
+<p><strong>NMT Services Enable:</strong> <br>
+- Device initialization and startup sequencing <br>
+- Operational state control and monitoring   <br>
+- Device reset and error recovery procedures <br>
+- Network-wide coordination and synchronization <br></p>
+<blockquote>
+<p><strong>📖 Reference</strong>: For detailed NMT information, see <a href="../network-management/">Network Management</a></p>
+</blockquote>
+<h3 id="service-data-objects-sdo">Service Data Objects (SDO)</h3>
+<p>A Service Data Object enables read and write access to the Object Dictionary, providing the primary method for device configuration and parameter access.</p>
+<p><strong>SDO Communication Model:</strong> <br>
+- <strong>Server</strong>: Owner of the Object Dictionary (typically the device being configured) <br>
+- <strong>Client</strong>: CAN node requesting data or initiating writes (typically the master) <br>
+- <strong>Upload</strong>: Reading a value from the Object Dictionary <br> 
+- <strong>Download</strong>: Writing a value to the Object Dictionary <br></p>
+<p><strong>Key Features:</strong> <br>
+- <strong>Confirmed Service</strong>: Every request receives a response <br>
+- <strong>Segmented Transfer</strong>: Large data objects transferred in multiple segments <br>
+- <strong>Error Handling</strong>: Detailed error codes for troubleshooting <br>
+- <strong>Security</strong>: Access permissions enforced at object level <br></p>
+<h3 id="process-data-objects-pdo">Process Data Objects (PDO)</h3>
+<p>A message containing only process data is called a "Process Data Object" (PDO). PDOs are designed for data that must be exchanged cyclically or in real-time.</p>
+<p><strong>PDO Concept:</strong> <br>
+- <strong>Efficient Transfer</strong>: No overhead information (index, sub-index, length) <br>
+- <strong>Mapping Configuration</strong>: Source and destination defined in separate PDO mapping <br>
+- <strong>Real-Time Capability</strong>: Optimized for time-critical applications <br>
+- <strong>Multiple Mappings</strong>: Up to 8 independent PDO configurations supported <br></p>
+<h4 id="pdo-usage-requirements">PDO Usage Requirements</h4>
+<p>PDOs can only be used when the NMT state machine is in "Operational" state. PDO configuration must be performed in "Pre-Operational" state.</p>
+<p><strong>PDO Configuration:</strong> <br>
+- <strong>Receive PDOs</strong>: Configure processing of incoming PDO messages <br>
+- <strong>Transmit PDOs</strong>: Configure transmission of outgoing PDO messages <br>
+- <strong>Mapping Flexibility</strong>: Each PDO can carry up to 8 bytes (64 bits) of data <br>
+- <strong>Data Combination</strong>: Multiple data types can be combined in single PDO <br></p>
+<p><strong>Example Combinations:</strong>
+- Two UNSIGNED32 values <br>
+- One UNSIGNED32 + one UNSIGNED8 value <br>
+- Custom combinations up to 8-byte limit <br></p>
+<h3 id="synchronization-object-sync">Synchronization Object (SYNC)</h3>
+<p>The Synchronization Object enables simultaneous validation of PDO data for all devices on the bus, ensuring coordinated network behavior.</p>
+<p><strong>SYNC Operation:</strong> <br>
+- <strong>Timing Master</strong>: One device generates SYNC messages <br>
+- <strong>Network Coordination</strong>: All devices synchronize to SYNC timing <br>
+- <strong>Data Consistency</strong>: Ensures simultaneous input/output updates <br>
+- <strong>Deterministic Behavior</strong>: Critical for real-time control applications <br></p>
+<h3 id="time-stamp-object-time">Time Stamp Object (TIME)</h3>
+<p>The Time-Stamp object provides network-wide time synchronization for applications requiring coordinated timing.</p>
+<p><strong>Standard Time Format:</strong> <br>
+- <strong>Resolution</strong>: Milliseconds after midnight (32-bit field) <br>
+- <strong>Date Reference</strong>: Days since January 1, 1984 (16-bit field) <br>
+- <strong>Overflow</strong>: System resets on June 7, 2163 <br></p>
+<p><strong>High-Resolution Option:</strong> <br>
+For time-critical applications requiring microsecond accuracy: <br>
+- <strong>Resolution</strong>: 1 microsecond (32-bit unsigned) <br>
+- <strong>Reset Interval</strong>: Counter resets every 72 minutes <br>
+- <strong>Use Case</strong>: Precise synchronization in large networks with reduced transmission rates <br></p>
+<h3 id="emergency-object-emcy">Emergency Object (EMCY)</h3>
+<p>An Emergency message is sent whenever an error occurs in the controller that is not caused by SDO access. This service is unconfirmed and transmitted with CAN-ID 80h + Node-ID.</p>
+<p><strong>Emergency Characteristics:</strong> <br>
+- <strong>Automatic Transmission</strong>: Sent immediately when errors occur <br>
+- <strong>Unconfirmed Service</strong>: No acknowledgment required <br>
+- <strong>Standard CAN-ID</strong>: 0x80 + Node-ID for consistent identification <br>
+- <strong>Error Classification</strong>: Provides specific error codes and additional information <br></p>
+<hr />
+<h2 id="configuration-setup">Configuration &amp; Setup</h2>
+<h3 id="initial-configuration">Initial Configuration</h3>
+<p>On first startup, the C7 controller comes pre-configured with default settings that enable immediate network connection for basic applications.</p>
+<p><strong>Default Configuration:</strong>
+- <strong>Node-ID</strong>: 1
+- <strong>Baud Rate</strong>: 500 kbit/s<br />
+- <strong>Mode</strong>: CANopen Classic (standard mode)
+- <strong>PDO Configuration</strong>: Basic transmit/receive PDOs enabled</p>
+<h3 id="layer-setting-services-lss">Layer Setting Services (LSS)</h3>
+<p>If you need to modify the default settings, the Node-ID and bit rate must be configured using LSS (Layer Setting Services).</p>
+<p><strong>LSS Capabilities:</strong> <br>
+- <strong>Node-ID Assignment</strong>: Set unique network addresses <br>
+- <strong>Baud Rate Configuration</strong>: Adjust communication speed <br>
+- <strong>Network Scan</strong>: Discover devices and their current settings <br>
+- <strong>Mass Configuration</strong>: Configure multiple devices simultaneously <br></p>
+<h3 id="canopen-fd-vs-classic-mode">CANopen FD vs Classic Mode</h3>
+<p>The device supports both CANopen Classic and the newer CANopen FD (Flexible Data Rate) modes.</p>
+<h4 id="mode-selection">Mode Selection</h4>
+<p>Configuration is performed through Object <strong>0x1F50sub2</strong> (Download Program Data - CANopen Configuration):</p>
+<p><strong>Configuration Data Format:</strong> <br>
+- <strong>Byte 0</strong>: FD Mode Flag (0 = Classic, ≠0 = FD mode) <br>
+- <strong>Byte 1</strong>: Node-ID (1-127) <br>
+- <strong>Byte 2</strong>: Baud rate low byte (kbit/s) <br>
+- <strong>Byte 3</strong>: Baud rate high byte (kbit/s) <br></p>
+<h4 id="mode-characteristics">Mode Characteristics</h4>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Data Rate</th>
+<th>Frame Size</th>
+<th>Compatibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CANopen Classic</strong></td>
+<td>Fixed</td>
+<td>Up to 8 bytes</td>
+<td>Full backward compatibility</td>
+</tr>
+<tr>
+<td><strong>CANopen FD</strong></td>
+<td>Variable</td>
+<td>Up to 64 bytes</td>
+<td>Requires FD-capable network</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuration-storage">Configuration Storage</h3>
+<p>Once a device is configured, the configuration can be modified through either LSS services or SDO access to object 0x1F50sub2.</p>
+<p><strong>Storage Process:</strong> <br>
+1. <strong>Configuration Write</strong>: New settings written to configuration object <br>
+2. <strong>Automatic Storage</strong>: Configuration automatically saved to non-volatile memory (NVM) <br>
+3. <strong>Power Cycle Required</strong>: Device must be power-cycled to activate new settings <br>
+4. <strong>Persistent Storage</strong>: Settings retained through power cycles <br></p>
+<blockquote>
+<p><strong>⚠️ Important</strong>: A power-off/power-on cycle is required to activate new configuration settings.</p>
+</blockquote>
+<hr />
+<h2 id="technical-specifications">Technical Specifications</h2>
+<h3 id="bus-length-vs-baud-rate">Bus Length vs Baud Rate</h3>
+<p>Complete specification table for network planning:</p>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Maximum Bus Length</th>
+<th>Signal Propagation</th>
+<th>Application Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10 kbit/s</strong></td>
+<td>5000m</td>
+<td>Low-speed long-distance</td>
+<td>Remote monitoring</td>
+</tr>
+<tr>
+<td><strong>20 kbit/s</strong></td>
+<td>2500m</td>
+<td>Extended networks</td>
+<td>Distributed control</td>
+</tr>
+<tr>
+<td><strong>50 kbit/s</strong></td>
+<td>1000m</td>
+<td>Medium-distance</td>
+<td>Building automation</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>500m</td>
+<td>Standard industrial</td>
+<td>Manufacturing lines</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>250m</td>
+<td>Fast industrial</td>
+<td>Motion control</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>100m</td>
+<td>High-speed industrial</td>
+<td>Real-time control</td>
+</tr>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>20m*</td>
+<td>Maximum speed</td>
+<td>High-speed local</td>
+</tr>
+</tbody>
+</table>
+<p>*) With optically isolated controllers. See <a href="#bus-length-limitations">Bus Length Limitations</a> for details.</p>
+<h3 id="stub-line-specifications">Stub Line Specifications</h3>
+<p>Detailed stub line requirements for network design:</p>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Single Stub Max</th>
+<th>Total Stubs Max</th>
+<th>Reflection Time</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>1m</td>
+<td>5m</td>
+<td>10ns/m</td>
+<td>Critical timing</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>5m</td>
+<td>25m</td>
+<td>25ns/m</td>
+<td>Standard industrial</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>10m</td>
+<td>50m</td>
+<td>50ns/m</td>
+<td>Moderate timing</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>20m</td>
+<td>100m</td>
+<td>100ns/m</td>
+<td>Relaxed timing</td>
+</tr>
+<tr>
+<td><strong>50 kbit/s</strong></td>
+<td>50m</td>
+<td>250m</td>
+<td>250ns/m</td>
+<td>Long-distance OK</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multiport-tap-specifications_1">Multiport Tap Specifications</h3>
+<p>When using passive multiport distributors (star topology with passive taps):</p>
+<table>
+<thead>
+<tr>
+<th>Baud Rate</th>
+<th>Stub Length</th>
+<th>Trunk Length</th>
+<th>Total Network</th>
+<th>Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Mbit/s</strong></td>
+<td>0.3m</td>
+<td>25m</td>
+<td>30m</td>
+<td>Very restricted</td>
+</tr>
+<tr>
+<td><strong>500 kbit/s</strong></td>
+<td>1.2m</td>
+<td>66m</td>
+<td>78m</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td><strong>250 kbit/s</strong></td>
+<td>2.4m</td>
+<td>120m</td>
+<td>144m</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td><strong>125 kbit/s</strong></td>
+<td>4.8m</td>
+<td>310m</td>
+<td>362m</td>
+<td>Extended</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Reference Links:</strong> <br>
+- <a href="../object-dictionary/">Object Dictionary</a> - Complete parameter reference <br>
+- <a href="../network-management/">Network Management</a> - Detailed NMT state machine documentation  <br>
+- <a href="../introduction/">Introduction</a> - Safety requirements and getting started <br></p>
+<p><strong>External References:</strong> <br>
+- <strong>CAN in Automation</strong>: <a href="http://www.can-cia.org">http://www.can-cia.org</a> <br>
+- <strong>Q-Drives Support</strong>: <a href="http://www.q-drives.com">http://www.q-drives.com</a> <br></p>
+<hr />
+<p><strong>Document Information:</strong>
+- <strong>Version</strong>: 0.1 (Initial Release)
+- <strong>Last Updated</strong>: Current
+- <strong>Firmware Compatibility</strong>: 2.01.6 and later
+- <strong>Standards</strong>: CiA 301, CiA 402 compliant</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../introduction/" class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../network-management/" class="btn btn-neutral float-right" title="Network Management">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../network-management/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
