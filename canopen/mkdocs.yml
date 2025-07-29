@@ -1,6 +1,6 @@
 site_name: Q-Drives CANopen Documentation
 nav:
-  - Home: introduction.md
+  - Introduction: index.md
   - CANopen: canopen.md
   - Network Management: network-management.md
   - Object Dictionary: object-dictionary.md
