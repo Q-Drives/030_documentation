@@ -1,3 +1,4 @@
+![](logo-horizontal.jpg)
 # NMT Network Management
 
 ## Table of Contents

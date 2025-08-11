@@ -1,3 +1,4 @@
+![](logo-horizontal.jpg)
 # Introduction
 
 ## Table of Contents

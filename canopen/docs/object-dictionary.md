@@ -1,3 +1,4 @@
+![](logo-horizontal.jpg)
 # Object Dictionary
 
 ### 1000 - Device Type

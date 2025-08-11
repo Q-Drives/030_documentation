@@ -1,3 +1,4 @@
+![](logo-horizontal.jpg)
 # CANopen Protocol Implementation
 
 ## Table of Contents

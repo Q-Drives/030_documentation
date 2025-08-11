@@ -1,3 +1,4 @@
+![](logo-horizontal.jpg)
 # Introduction
 
 ## Table of Contents
@@ -10,7 +11,6 @@
 - [Getting Started](#getting-started)
 
 ## About This Documentation
-
 This documentation provides comprehensive technical information for **CANopen Object Dictionary implementation** on Q-Drives C7 devices. It covers the complete CANopen protocol implementation, network management, and operational procedures for technicians and engineers working with industrial automation systems.
 
 ### What You'll Find Here
