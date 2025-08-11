@@ -1,0 +1,105 @@
+# Operation Modes
+
+## Overview
+
+The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.
+
+### Mode Selection
+
+**Configuration Objects:** <br>
+- **Modes of operation (6060h)**: Set the desired operation mode <br>
+- **Modes of operation display (6061h)**: Shows the current active mode <br>
+- **Supported drive modes (6502h)**: Indicates which modes are available <br>
+
+**Important Notes:**
+- Mode changes typically require the device to be in Pre-operational state
+- Not all modes may be supported on every device variant
+- Check object 6502h to verify available modes before attempting to switch
+
+---
+
+## Profile Position - Mode 1
+
+### Description
+Point-to-point positioning with built-in trajectory generation for precise positioning applications.
+
+### Essential Objects
+| Object                  | Index | Description |
+|-------------------------|-------|-------------|
+| Position target value   | 607Ah | Commanded position (absolute/relative) |
+| Profile velocity        | 6081h | Maximum velocity during motion |
+| Profile acceleration    | 6083h | Acceleration rate |
+| Profile deceleration    | 6084h | Deceleration rate |
+| Profile type            | 6086h | Type of trajectory (0=linear, 1=sin², etc.) |
+| Software position limit | 607Dh | Min/max position limits |
+
+### Control Sequence
+1. Set target position (607Ah)
+2. Configure velocity and acceleration parameters
+3. Set controlword bit 4 (new set-point) to start motion
+4. Monitor statusword bit 10 (target reached) for completion
+
+---
+
+## Velocity Mode - Mode 2
+
+### Description
+Simple velocity control with ramp functions, designed for frequency inverter-style applications.
+
+### Essential Objects
+| Object | Index | Description |
+|--------|-------|-------------|
+| vl target velocity | 6042h | Desired velocity setpoint |
+| vl velocity actual value | 6044h | Current velocity feedback |
+| vl velocity acceleration | 6048h | Acceleration ramp settings |
+| vl velocity deceleration | 6049h | Deceleration ramp settings |
+| vl velocity min max amount | 6046h | Velocity limits |
+
+### Control Bits
+- **Bit 4**: Enable ramp (0=other control, 1=ramp follows input)
+- **Bit 5**: Unlock ramp (0=locked, 1=follow reference)
+- **Bit 6**: Reference ramp (0=zero input, 1=follow reference)
+- **Bit 8**: Halt (0=no command, 1=stop motor)
+
+---
+
+## Homing Mode - Mode 6
+
+### Description
+Establish absolute position reference using various homing methods.
+
+### Use Cases
+- Finding machine zero position
+- Establishing absolute coordinate system
+- Initial positioning after power-up
+
+### Common Homing Methods
+| Method | Description                      |
+|--------|----------------------------------|
+| -4/-3  | Positiv/Netativ Mechanical Limit |
+| 17/18  | Positiv/Negativ Limit Switch     |
+| 19/20  | Positiv Home Switch              |
+| 21/22  | Negativ Home Switch              |
+| 37     | Homing Current Position          |
+
+### Essential Objects
+| Object | Index | Description |
+|--------|-------|-------------|
+| Homing method | 6098h | Selected homing method |
+| Home offset | 607Ch | Offset from home position |
+| Homing speeds | 6099h | Search and zero speeds |
+| Homing acceleration | 609Ah | Acceleration during homing |
+
+### Control Sequence
+1. Set homing method (6098h)
+2. Configure speeds and acceleration
+3. Set controlword bit 4 to start homing
+4. Monitor statusword bits 10, 12, 13 for completion/status
+
+---
+
+**Document Information:**
+- **Version**: 0.1 (Initial Release)
+- **Last Updated**: Current
+- **Firmware Compatibility**: 2.01.6 and later
+- **Standards**: CiA 301, CiA 402 compliant

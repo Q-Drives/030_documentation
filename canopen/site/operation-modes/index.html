@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Operation Modes - Q-Drives CANopen Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Operation Modes";
+        var mkdocs_page_input_path = "operation-modes.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Q-Drives CANopen Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../canopen/">CANopen</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../network-management/">Network Management</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Operation Modes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mode-selection">Mode Selection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#profile-position-mode-1">Profile Position - Mode 1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects">Essential Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#control-sequence">Control Sequence</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#velocity-mode-mode-2">Velocity Mode - Mode 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_1">Essential Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#control-bits">Control Bits</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#homing-mode-mode-6">Homing Mode - Mode 6</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-cases">Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-homing-methods">Common Homing Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_2">Essential Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#control-sequence_1">Control Sequence</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../object-dictionary/">Object Dictionary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Q-Drives CANopen Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Operation Modes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="operation-modes">Operation Modes</h1>
+<h2 id="overview">Overview</h2>
+<p>The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.</p>
+<h3 id="mode-selection">Mode Selection</h3>
+<p><strong>Configuration Objects:</strong> <br>
+- <strong>Modes of operation (6060h)</strong>: Set the desired operation mode <br>
+- <strong>Modes of operation display (6061h)</strong>: Shows the current active mode <br>
+- <strong>Supported drive modes (6502h)</strong>: Indicates which modes are available <br></p>
+<p><strong>Important Notes:</strong>
+- Mode changes typically require the device to be in Pre-operational state
+- Not all modes may be supported on every device variant
+- Check object 6502h to verify available modes before attempting to switch</p>
+<hr />
+<h2 id="profile-position-mode-1">Profile Position - Mode 1</h2>
+<h3 id="description">Description</h3>
+<p>Point-to-point positioning with built-in trajectory generation for precise positioning applications.</p>
+<h3 id="essential-objects">Essential Objects</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Index</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Position target value</td>
+<td>607Ah</td>
+<td>Commanded position (absolute/relative)</td>
+</tr>
+<tr>
+<td>Profile velocity</td>
+<td>6081h</td>
+<td>Maximum velocity during motion</td>
+</tr>
+<tr>
+<td>Profile acceleration</td>
+<td>6083h</td>
+<td>Acceleration rate</td>
+</tr>
+<tr>
+<td>Profile deceleration</td>
+<td>6084h</td>
+<td>Deceleration rate</td>
+</tr>
+<tr>
+<td>Profile type</td>
+<td>6086h</td>
+<td>Type of trajectory (0=linear, 1=sin², etc.)</td>
+</tr>
+<tr>
+<td>Software position limit</td>
+<td>607Dh</td>
+<td>Min/max position limits</td>
+</tr>
+</tbody>
+</table>
+<h3 id="control-sequence">Control Sequence</h3>
+<ol>
+<li>Set target position (607Ah)</li>
+<li>Configure velocity and acceleration parameters</li>
+<li>Set controlword bit 4 (new set-point) to start motion</li>
+<li>Monitor statusword bit 10 (target reached) for completion</li>
+</ol>
+<hr />
+<h2 id="velocity-mode-mode-2">Velocity Mode - Mode 2</h2>
+<h3 id="description_1">Description</h3>
+<p>Simple velocity control with ramp functions, designed for frequency inverter-style applications.</p>
+<h3 id="essential-objects_1">Essential Objects</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Index</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vl target velocity</td>
+<td>6042h</td>
+<td>Desired velocity setpoint</td>
+</tr>
+<tr>
+<td>vl velocity actual value</td>
+<td>6044h</td>
+<td>Current velocity feedback</td>
+</tr>
+<tr>
+<td>vl velocity acceleration</td>
+<td>6048h</td>
+<td>Acceleration ramp settings</td>
+</tr>
+<tr>
+<td>vl velocity deceleration</td>
+<td>6049h</td>
+<td>Deceleration ramp settings</td>
+</tr>
+<tr>
+<td>vl velocity min max amount</td>
+<td>6046h</td>
+<td>Velocity limits</td>
+</tr>
+</tbody>
+</table>
+<h3 id="control-bits">Control Bits</h3>
+<ul>
+<li><strong>Bit 4</strong>: Enable ramp (0=other control, 1=ramp follows input)</li>
+<li><strong>Bit 5</strong>: Unlock ramp (0=locked, 1=follow reference)</li>
+<li><strong>Bit 6</strong>: Reference ramp (0=zero input, 1=follow reference)</li>
+<li><strong>Bit 8</strong>: Halt (0=no command, 1=stop motor)</li>
+</ul>
+<hr />
+<h2 id="homing-mode-mode-6">Homing Mode - Mode 6</h2>
+<h3 id="description_2">Description</h3>
+<p>Establish absolute position reference using various homing methods.</p>
+<h3 id="use-cases">Use Cases</h3>
+<ul>
+<li>Finding machine zero position</li>
+<li>Establishing absolute coordinate system</li>
+<li>Initial positioning after power-up</li>
+</ul>
+<h3 id="common-homing-methods">Common Homing Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-4/-3</td>
+<td>Positiv/Netativ Mechanical Limit</td>
+</tr>
+<tr>
+<td>17/18</td>
+<td>Positiv/Negativ Limit Switch</td>
+</tr>
+<tr>
+<td>19/20</td>
+<td>Positiv Home Switch</td>
+</tr>
+<tr>
+<td>21/22</td>
+<td>Negativ Home Switch</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Homing Current Position</td>
+</tr>
+</tbody>
+</table>
+<h3 id="essential-objects_2">Essential Objects</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Index</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homing method</td>
+<td>6098h</td>
+<td>Selected homing method</td>
+</tr>
+<tr>
+<td>Home offset</td>
+<td>607Ch</td>
+<td>Offset from home position</td>
+</tr>
+<tr>
+<td>Homing speeds</td>
+<td>6099h</td>
+<td>Search and zero speeds</td>
+</tr>
+<tr>
+<td>Homing acceleration</td>
+<td>609Ah</td>
+<td>Acceleration during homing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="control-sequence_1">Control Sequence</h3>
+<ol>
+<li>Set homing method (6098h)</li>
+<li>Configure speeds and acceleration</li>
+<li>Set controlword bit 4 to start homing</li>
+<li>Monitor statusword bits 10, 12, 13 for completion/status</li>
+</ol>
+<hr />
+<p><strong>Document Information:</strong>
+- <strong>Version</strong>: 0.1 (Initial Release)
+- <strong>Last Updated</strong>: Current
+- <strong>Firmware Compatibility</strong>: 2.01.6 and later
+- <strong>Standards</strong>: CiA 301, CiA 402 compliant</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../network-management/" class="btn btn-neutral float-left" title="Network Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../object-dictionary/" class="btn btn-neutral float-right" title="Object Dictionary">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../network-management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../object-dictionary/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
