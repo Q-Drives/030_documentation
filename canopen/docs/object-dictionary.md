@@ -1216,8 +1216,8 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 ---
 
 **Document Information:**
-- **Version**: 0.1 (Initial Release)
-- **Last Updated**: Current
+- **Version**: 1.1 
+- **Last Updated**: 11.08.2025
 - **Firmware Compatibility**: 2.01.6 and later
 - **Standards**: CiA 301, CiA 402 compliant
 

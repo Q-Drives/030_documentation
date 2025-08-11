@@ -4,6 +4,12 @@
 
 The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.
 
+### Document Version Information
+
+| Version | Date | Changes | Firmware Version |
+|---------|------|---------|------------------|
+| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+
 ### Mode Selection
 
 **Configuration Objects:** <br>
@@ -99,7 +105,7 @@ Establish absolute position reference using various homing methods.
 ---
 
 **Document Information:**
-- **Version**: 0.1 (Initial Release)
-- **Last Updated**: Current
+- **Version**: 1.1 
+- **Last Updated**: 11.08.2025
 - **Firmware Compatibility**: 2.01.6 and later
 - **Standards**: CiA 301, CiA 402 compliant

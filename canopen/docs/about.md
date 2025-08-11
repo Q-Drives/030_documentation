@@ -15,8 +15,8 @@ Q-Drives GmbH
 - Test Engineering
 
 **Contact Information:**
-- **Technical Support**: For implementation questions and troubleshooting
-- **Documentation Feedback**: Report errors or suggest improvements
+- **Technical Support**: [technik@q-drives.com]
+- **Documentation Feedback**: [a.benz@q-drives.com]
 - **Company Website**: [www.q-drives.com](http://www.q-drives.com)
 
 ### Maintenance Schedule
@@ -59,7 +59,7 @@ Q-Drives is a leading manufacturer of intelligent motor controllers and drive so
 ### Version History
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 0.1 | 15.11.2024 | Andreas Benz | Initial release |
+| 1.1 | 15.11.2025 | Andreas Benz | Initial release |
 
 ### Documentation Standards
 - **Format**: Markdown with MkDocs processing
@@ -94,7 +94,7 @@ Q-Drives GmbH accepts no liability for damage or malfunctions resulting from ins
 ---
 
 **Document Information:**
-- **Version**: 0.1 (Initial Release)
+- **Version**: 1.1 (Initial Release)
 - **Last Updated**: Current
 - **Firmware Compatibility**: 2.01.6 and later
 - **Standards**: CiA 301, CiA 402 compliant

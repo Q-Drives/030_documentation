@@ -18,6 +18,7 @@ This documentation provides comprehensive technical information for **CANopen Ob
 - **Object Dictionary Reference**: Complete documentation of all CANopen objects with parameters, data types, and access permissions
 - **CANopen Protocol Implementation**: Physical layer setup, communication types, network topology, and technical specifications
 - **Network Management (NMT)**: State machines, startup procedures, error handling, and practical troubleshooting guidance
+- **Operation Modes**: Detailed documentation of device operation modes, state transitions, and control configurations
 - **About & Support**: Documentation author information, company details, and technical support resources
 - **Safety & Legal Information**: ESD protection, warranty disclaimers, and qualified personnel requirements
 
@@ -121,6 +122,7 @@ This documentation is organized into the following main sections:
 | **[Object Dictionary](object-dictionary.md)** | Complete CANopen object reference | All users |
 | **[CANopen Protocol](canopen.md)** | Technical protocol implementation details | Engineers, System Designers |
 | **[Network Management](network-management.md)** | State machines, startup, and troubleshooting | Technicians, Engineers |
+| **[Operation Modes](operation-modes.md)** | Device operation modes and control configurations | Engineers, Technicians |
 | **[About](about.md)** | Documentation author and company information | All users |
 
 ### 📋 Reference Materials
@@ -145,6 +147,7 @@ This documentation is organized into the following main sections:
 2. **📡 Learn CANopen Protocol** - Understand physical layer, network setup, and communication basics
 3. **🔍 Review Object Dictionary** - Familiarize yourself with available parameters and configuration options
 4. **⚙️ Study Network Management** - Learn NMT states, startup procedures, and troubleshooting
+4. **⚙️ Study Operation Modes** - Learn Operation Modes and how to use them
 5. **🚀 Implementation** - Apply knowledge to your specific application
 
 ### Quick Navigation
@@ -152,10 +155,12 @@ This documentation is organized into the following main sections:
 **Need to...** | **Go to...**
 ---------------|-------------
 Configure a device | [Object Dictionary](object-dictionary.md)
+Set up operation modes | [Operation Modes](operation-modes.md)
 Troubleshoot startup issues | [Network Management - Error Handling](network-management.md#error-handling--troubleshooting)
 Understand network behavior | [Network Management - Startup Process](network-management.md#startup-process)
 Learn CANopen protocol | [CANopen Protocol](canopen.md)
 Find specific parameters | [Object Dictionary](object-dictionary.md)
+Configure control modes | [Operation Modes](operation-modes.md)
 
 ### Technical Support
 
@@ -168,7 +173,7 @@ For additional support beyond this documentation:
 ---
 
 **Document Information:**
-- **Version**: 0.1 (Initial Release)
-- **Last Updated**: Current
+- **Version**: 1.1 
+- **Last Updated**: 11.08.2025
 - **Firmware Compatibility**: 2.01.6 and later
 - **Standards**: CiA 301, CiA 402 compliant
