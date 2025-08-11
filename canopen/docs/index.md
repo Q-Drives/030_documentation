@@ -121,6 +121,7 @@ This documentation is organized into the following main sections:
 | **[Object Dictionary](object-dictionary.md)** | Complete CANopen object reference | All users |
 | **[CANopen Protocol](canopen.md)** | Technical protocol implementation details | Engineers, System Designers |
 | **[Network Management](network-management.md)** | State machines, startup, and troubleshooting | Technicians, Engineers |
+| **[Operation Modes ](operation-modes.md)** | Profile Position Mode, Velocity Mode, Homing Mode | Technicians, Engineers |
 | **[About](about.md)** | Documentation author and company information | All users |
 
 ### 📋 Reference Materials
@@ -145,7 +146,8 @@ This documentation is organized into the following main sections:
 2. **📡 Learn CANopen Protocol** - Understand physical layer, network setup, and communication basics
 3. **🔍 Review Object Dictionary** - Familiarize yourself with available parameters and configuration options
 4. **⚙️ Study Network Management** - Learn NMT states, startup procedures, and troubleshooting
-5. **🚀 Implementation** - Apply knowledge to your specific application
+5. **⚙️ Operation Modes** - Learn Operation modes and how to use it
+6. **🚀 Implementation** - Apply knowledge to your specific application
 
 ### Quick Navigation
 
@@ -155,6 +157,7 @@ Configure a device | [Object Dictionary](object-dictionary.md)
 Troubleshoot startup issues | [Network Management - Error Handling](network-management.md#error-handling--troubleshooting)
 Understand network behavior | [Network Management - Startup Process](network-management.md#startup-process)
 Learn CANopen protocol | [CANopen Protocol](canopen.md)
+Operation Modes | [Operation Modes](operation-modes.md)
 Find specific parameters | [Object Dictionary](object-dictionary.md)
 
 ### Technical Support
