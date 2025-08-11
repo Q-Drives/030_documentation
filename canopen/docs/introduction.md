@@ -10,7 +10,6 @@
 - [Getting Started](#getting-started)
 
 ## About This Documentation
-
 This documentation provides comprehensive technical information for **CANopen Object Dictionary implementation** on Q-Drives C7 devices. It covers the complete CANopen protocol implementation, network management, and operational procedures for technicians and engineers working with industrial automation systems.
 
 ### What You'll Find Here
@@ -168,13 +167,18 @@ Configure control modes | [Operation Modes](operation-modes.md)
 For additional support beyond this documentation:
 
 - **Website**: [www.q-drives.com](http://www.q-drives.com)
-- **Technical Resources**: Product-specific documentation and updates
-- **Contact**: Professional support for implementation assistance
+- **Contact**: technik@q-drives.com
 
 ---
 
-**Document Information:**
-- **Version**: 1.1 
-- **Last Updated**: 11.08.2025
-- **Firmware Compatibility**: 2.01.6 and later
+### Version History
+| Version | Date | Changes | Firmware Version |
+|---------|------|---------|------------------|
+| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
+
+---
+
+**Document Information:** <br>
+- **Firmware Compatibility**: 2.01.6 and later <br>
 - **Standards**: CiA 301, CiA 402 compliant

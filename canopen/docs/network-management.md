@@ -40,13 +40,6 @@ CANopen networks operate on a master-slave principle where:
 - State management ensures orderly startup and operation
 - Error handling maintains network reliability
 
-### Document Version Information
-
-| Version | Date | Changes | Firmware Version |
-|---------|------|---------|------------------|
-| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
-| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
-
 ---
 
 ## NMT States Explained
@@ -339,8 +332,23 @@ When startup or operation fails, the system generates specific error codes:
 
 ---
 
-**Document Information:**
-- **Version**: 1.1 
-- **Last Updated**: 11.08.2025
-- **Firmware Compatibility**: 2.01.6 and later
+### Technical Support
+
+For additional support beyond this documentation:
+
+- **Website**: [www.q-drives.com](http://www.q-drives.com)
+- **Contact**: technik@q-drives.com
+
+---
+
+### Version History
+| Version | Date | Changes | Firmware Version |
+|---------|------|---------|------------------|
+| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
+
+---
+
+**Document Information:** <br>
+- **Firmware Compatibility**: 2.01.6 and later <br>
 - **Standards**: CiA 301, CiA 402 compliant

@@ -57,8 +57,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#document-version-information">Document Version Information</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#mode-selection">Mode Selection</a>
     </li>
         </ul>
@@ -94,6 +92,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#essential-objects_2">Essential Objects</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#control-sequence_1">Control Sequence</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technical-support">Technical Support</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#version-history">Version History</a>
     </li>
         </ul>
     </li>
@@ -134,31 +136,6 @@
                 <h1 id="operation-modes">Operation Modes</h1>
 <h2 id="overview">Overview</h2>
 <p>The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.</p>
-<h3 id="document-version-information">Document Version Information</h3>
-<table>
-<thead>
-<tr>
-<th>Version</th>
-<th>Date</th>
-<th>Changes</th>
-<th>Firmware Version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.1</td>
-<td>15.11.2024</td>
-<td>Initial release</td>
-<td>2.01.6</td>
-</tr>
-<tr>
-<td>1.1</td>
-<td>11.08.2025</td>
-<td>Add Operation Modes</td>
-<td>2.01.6</td>
-</tr>
-</tbody>
-</table>
 <h3 id="mode-selection">Mode Selection</h3>
 <p><strong>Configuration Objects:</strong> <br>
 - <strong>Modes of operation (6060h)</strong>: Set the desired operation mode <br>
@@ -350,10 +327,41 @@
 <li>Monitor statusword bits 10, 12, 13 for completion/status</li>
 </ol>
 <hr />
-<p><strong>Document Information:</strong>
-- <strong>Version</strong>: 1.1 
-- <strong>Last Updated</strong>: 11.08.2025
-- <strong>Firmware Compatibility</strong>: 2.01.6 and later
+<h3 id="technical-support">Technical Support</h3>
+<p>For additional support beyond this documentation:</p>
+<ul>
+<li><strong>Website</strong>: <a href="http://www.q-drives.com">www.q-drives.com</a></li>
+<li><strong>Contact</strong>: technik@q-drives.com</li>
+</ul>
+<hr />
+<h3 id="version-history">Version History</h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+<th>Firmware Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>15.11.2024</td>
+<td>Initial release</td>
+<td>2.01.6</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>11.08.2025</td>
+<td>Add Operation Modes</td>
+<td>2.01.6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Document Information:</strong> <br>
+- <strong>Firmware Compatibility</strong>: 2.01.6 and later <br>
 - <strong>Standards</strong>: CiA 301, CiA 402 compliant</p>
               
             </div>

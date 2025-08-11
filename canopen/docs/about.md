@@ -1,4 +1,4 @@
-# About This Documentation
+# About
 
 ## Author & Maintenance
 
@@ -54,14 +54,6 @@ Q-Drives is a leading manufacturer of intelligent motor controllers and drive so
 - **Sales Information**: Regional distributors and direct sales
 - **Training**: Scheduled workshops and custom training programs
 
-## Document Information
-
-### Version History
-| Version | Date | Changes | Firmware Version |
-|---------|------|---------|------------------|
-| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
-| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
-
 ### Documentation Standards
 - **Format**: Markdown with MkDocs processing
 - **Theme**: ReadTheDocs for professional appearance
@@ -94,8 +86,23 @@ Q-Drives GmbH accepts no liability for damage or malfunctions resulting from ins
 
 ---
 
-**Document Information:**
-- **Version**: 1.1 (Initial Release)
-- **Last Updated**: Current
-- **Firmware Compatibility**: 2.01.6 and later
+### Technical Support
+
+For additional support beyond this documentation:
+
+- **Website**: [www.q-drives.com](http://www.q-drives.com)
+- **Contact**: technik@q-drives.com
+
+---
+
+### Version History
+| Version | Date | Changes | Firmware Version |
+|---------|------|---------|------------------|
+| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
+
+---
+
+**Document Information:** <br>
+- **Firmware Compatibility**: 2.01.6 and later <br>
 - **Standards**: CiA 301, CiA 402 compliant
