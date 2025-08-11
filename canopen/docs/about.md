@@ -57,9 +57,10 @@ Q-Drives is a leading manufacturer of intelligent motor controllers and drive so
 ## Document Information
 
 ### Version History
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.1 | 15.11.2025 | Andreas Benz | Initial release |
+| Version | Date | Changes | Firmware Version |
+|---------|------|---------|------------------|
+| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
 
 ### Documentation Standards
 - **Format**: Markdown with MkDocs processing

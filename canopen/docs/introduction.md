@@ -31,6 +31,7 @@ CANopen is a communication protocol based on the CAN (Controller Area Network) b
 | Version | Date | Changes | Firmware Version |
 |---------|------|---------|------------------|
 | 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
 
 ---
 

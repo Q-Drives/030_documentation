@@ -18,6 +18,7 @@ This documentation provides comprehensive technical information for **CANopen Ob
 - **Object Dictionary Reference**: Complete documentation of all CANopen objects with parameters, data types, and access permissions
 - **CANopen Protocol Implementation**: Physical layer setup, communication types, network topology, and technical specifications
 - **Network Management (NMT)**: State machines, startup procedures, error handling, and practical troubleshooting guidance
+- **Operation Modes**: Profile Position Mode, Velocity Mode, Homing Mode
 - **About & Support**: Documentation author information, company details, and technical support resources
 - **Safety & Legal Information**: ESD protection, warranty disclaimers, and qualified personnel requirements
 
@@ -30,6 +31,7 @@ CANopen is a communication protocol based on the CAN (Controller Area Network) b
 | Version | Date | Changes | Firmware Version |
 |---------|------|---------|------------------|
 | 0.1 | 15.11.2024 | Initial release | 2.01.6 |
+| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
 
 ---
 
