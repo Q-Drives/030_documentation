@@ -469,7 +469,7 @@ This data object shall list all implemented CiA documents.
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Angular sensor configuration
+- **Description:** This object configures the angular position sensor (encoder, resolver, etc.) used for motor position and velocity feedback. It defines sensor type, signal processing parameters, and mounting compensation settings essential for accurate closed-loop control.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -484,7 +484,7 @@ This data object shall list all implemented CiA documents.
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Encoder sensor parameters
+- **Description:** This object contains configuration parameters for incremental encoder sensors used for motor position and velocity feedback. It defines encoder resolution, PWM output settings, and interface characteristics for proper encoder operation.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -497,7 +497,7 @@ This data object shall list all implemented CiA documents.
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Hall sensor configuration
+- **Description:** This object contains configuration parameters for Hall effect sensors used in brushless motor commutation. It defines interpolation settings, synchronization parameters, and sensor mapping for proper motor commutation timing.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -527,7 +527,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Sin/Cos sensor configuration
+- **Description:** This object configures analog Sin/Cos encoder sensors that provide high-resolution position feedback through sinusoidal signals. It defines signal conditioning, offset compensation, and gain calibration for accurate position measurement.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -544,7 +544,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Temperature sensor readings
+- **Description:** This object provides real-time temperature measurements from sensors monitoring motor and drive electronics temperatures. It enables thermal protection and system health monitoring for safe operation.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -598,7 +598,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Temperature protection limits
+- **Description:** This object defines temperature protection thresholds that trigger warnings or shutdowns when motor or drive temperatures exceed safe operating limits. It provides thermal protection for system components.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -641,7 +641,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Current controller parameters
+- **Description:** This object contains the current control loop parameters (PI controller gains) for the d-axis and q-axis current controllers in field-oriented motor control. These parameters directly affect current control performance and stability.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -655,7 +655,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Speed controller parameters
+- **Description:** This object defines the speed control loop parameters (PID controller gains and filter settings) that determine how the drive responds to speed commands and disturbances. Proper tuning is essential for stable speed control.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -669,7 +669,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Position controller parameters
+- **Description:** This object contains the position control loop parameters (PID controller gains and filter settings) that govern position control performance. These settings affect positioning accuracy, response time, and stability.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -699,7 +699,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** General control configuration
+- **Description:** This object contains general control configuration parameters that define fundamental operational behavior including motor control modes, shutdown behavior, and system-level control settings.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -858,7 +858,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** CANopen communication configuration
+- **Description:** This object contains CANopen communication protocol configuration settings that define network behavior and protocol options for the drive's CANopen interface.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -975,7 +975,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER32
 - **ObjectCode:** Variable
-- **Description:** Actual position value
+- **Description:** This object provides the real-time measured position of the motor shaft according to the CiA 402 standard. It represents the current absolute position feedback from the drive's position sensing system (encoder, resolver, or other feedback device) and serves as the primary position feedback for closed-loop control and monitoring.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -985,7 +985,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** DC link circuit voltage
+- **Description:** This object provides the real-time measurement of the DC link voltage within the motor drive according to the CiA 402 standard. It represents the intermediate DC voltage level that powers the motor inverter stage, serving as a critical parameter for drive operation and system monitoring.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -995,7 +995,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER32
 - **ObjectCode:** Variable
-- **Description:** Target position value
+- **Description:** This object sets the target position that the motor should move to in position control modes according to the CiA 402 standard. It defines the desired absolute position setpoint that the drive will attempt to reach using the configured motion profile and control parameters.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1027,7 +1027,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Maximum profile velocity
+- **Description:** This object defines the maximum velocity limit for profile-based motion modes according to the CiA 402 standard. It sets an absolute upper bound on the velocity used during trajectory generation, ensuring all profile movements stay within safe speed limits regardless of other velocity settings.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1037,7 +1037,8 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Maximum motor speed
+- **Description:** This object specifies the maximum rotational speed capability of the connected motor according to the CiA 402 standard. It represents the motor's physical speed limitation based on its design specifications and mechanical constraints.
+
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1047,7 +1048,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Profile velocity for position mode
+- **Description:** This object sets the maximum velocity used during the constant velocity phase of profile-based positioning moves according to the CiA 402 standard. It defines the target speed that the motor reaches during position mode operations.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1057,7 +1058,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Profile acceleration
+- **Description:** This object defines the acceleration rate used during the acceleration phase of profile-based positioning moves according to the CiA 402 standard. It controls how quickly the motor speeds up when starting a position move.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1067,7 +1068,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Profile deceleration
+- **Description:** This object defines the deceleration rate used during the deceleration phase of profile-based positioning moves according to the CiA 402 standard. It controls how quickly the motor slows down when approaching the target position.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1175,7 +1176,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER8
 - **ObjectCode:** Array
-- **Description:** List of supported homing methods
+- **Description:** This object provides a list of homing methods supported by the drive implementation according to the CiA 402 standard. It indicates which homing algorithms are available for establishing reference positions.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1194,7 +1195,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** Supported operation modes bit mask
+- **Description:** This object indicates which operation modes are supported by the drive implementation according to the CiA 402 standard. It provides a bit mask showing the available control modes that can be selected via the modes of operation object (0x6060).
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
