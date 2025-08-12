@@ -4,9 +4,9 @@
 ## Table of Contents
 - [About This Documentation](#about-this-documentation)
 - [Important Information](#important-information)
-  - [Warranty and Disclaimer](#warranty-and-disclaimer)
-  - [Target Group and Qualifications](#target-group-and-qualifications)
-  - [Safety and Warning Notices](#safety-and-warning-notices)
+- [Warranty and Disclaimer](#warranty-and-disclaimer)
+- [Target Group and Qualifications](#target-group-and-qualifications)
+- [Safety and Warning Notices](#safety-and-warning-notices)
 - [Documentation Structure](#documentation-structure)
 - [Getting Started](#getting-started)
 
@@ -18,20 +18,13 @@ This documentation provides comprehensive technical information for **CANopen Ob
 - **Object Dictionary Reference**: Complete documentation of all CANopen objects with parameters, data types, and access permissions
 - **CANopen Protocol Implementation**: Physical layer setup, communication types, network topology, and technical specifications
 - **Network Management (NMT)**: State machines, startup procedures, error handling, and practical troubleshooting guidance
-- **Operation Modes**: Detailed documentation of device operation modes, state transitions, and control configurations
+- **Operation Modes**: Detailed documentation of device operation modes, includes Profile position mode, velocity mode, homing mode
 - **About & Support**: Documentation author information, company details, and technical support resources
 - **Safety & Legal Information**: ESD protection, warranty disclaimers, and qualified personnel requirements
 
 ### CANopen Overview
 
 CANopen is a communication protocol based on the CAN (Controller Area Network) bus system, widely used in industrial automation. It provides standardized communication methods for devices in manufacturing, automotive, and other industrial applications.
-
-### Document Version Information
-
-| Version | Date | Changes | Firmware Version |
-|---------|------|---------|------------------|
-| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
-| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
 
 ---
 
@@ -126,18 +119,6 @@ This documentation is organized into the following main sections:
 | **[Operation Modes](operation-modes.md)** | Device operation modes and control configurations | Engineers, Technicians |
 | **[About](about.md)** | Documentation author and company information | All users |
 
-### 📋 Reference Materials
-
-- **Technical Specifications**: Detailed parameter lists and data types
-- **Error Codes**: Complete troubleshooting reference
-- **Implementation Examples**: Practical usage scenarios
-
-### 🔧 Support Resources
-
-- **Installation Guides**: Step-by-step procedures
-- **Troubleshooting**: Common issues and solutions
-- **Best Practices**: Recommended implementation approaches
-
 ---
 
 ## Getting Started
@@ -156,7 +137,6 @@ This documentation is organized into the following main sections:
 **Need to...** | **Go to...**
 ---------------|-------------
 Configure a device | [Object Dictionary](object-dictionary.md)
-Set up operation modes | [Operation Modes](operation-modes.md)
 Troubleshoot startup issues | [Network Management - Error Handling](network-management.md#error-handling--troubleshooting)
 Understand network behavior | [Network Management - Startup Process](network-management.md#startup-process)
 Learn CANopen protocol | [CANopen Protocol](canopen.md)
