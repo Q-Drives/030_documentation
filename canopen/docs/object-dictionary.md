@@ -1203,7 +1203,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 ---
 
-### Technical Support
+## Technical Support
 
 For additional support beyond this documentation:
 
@@ -1212,7 +1212,7 @@ For additional support beyond this documentation:
 
 ---
 
-### Version History
+## Version History
 | Version | Date | Changes | Firmware Version |
 |---------|------|---------|------------------|
 | 0.1 | 15.11.2024 | Initial release | 2.01.6 |
