@@ -919,7 +919,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Array
-- **Description:** Velocity limits for velocity mode
+- **Description:** This object defines the minimum and maximum velocity limits for velocity mode operation according to the CiA 402 standard. It establishes absolute velocity boundaries that constrain all velocity commands, providing safety limits and operational range definition for velocity control applications.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -931,7 +931,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Velocity mode acceleration parameters
+- **Description:** This object defines the acceleration parameters used specifically for velocity mode operation according to the CiA 402 standard. It controls how quickly the motor accelerates when velocity commands change in velocity control mode, providing smooth transitions between different speed setpoints.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -943,7 +943,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED8
 - **ObjectCode:** Record
-- **Description:** Velocity mode deceleration parameters
+- **Description:** This object defines the deceleration parameters used specifically for velocity mode operation according to the CiA 402 standard. It controls how quickly the motor decelerates when velocity commands change in velocity control mode, providing smooth transitions between different speed setpoints.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -955,7 +955,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER8
 - **ObjectCode:** Variable
-- **Description:** Selected operation mode
+- **Description:** This object selects the operational mode (control method) for the motor drive according to the CiA 402 standard. It determines which type of control algorithm the drive uses to command motor motion, defining the fundamental behavior and command interface of the system.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -965,7 +965,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER8
 - **ObjectCode:** Variable
-- **Description:** Current operation mode display
+- **Description:** This object displays the selected operational mode (control method) for the motor drive according to the CiA 402 standard.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1015,7 +1015,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** INTEGER32
 - **ObjectCode:** Array
-- **Description:** Software position limits
+- **Description:** This object defines software-enforced position limits that prevent the motor from moving beyond specified minimum and maximum position boundaries according to the CiA 402 standard. These limits provide safety protection by creating virtual boundaries within the mechanical travel range.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
