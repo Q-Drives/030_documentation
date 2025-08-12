@@ -2,7 +2,9 @@
     background-color: #000000 !important;
 }
 
-img[alt$=">"] {
+img{
   display: block;
-  
+  width: 150px;
+  height: auto;
+  margin-bottom: 40px;  
 }
