@@ -165,6 +165,12 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#2042-position-trajectory">2042 - Position Trajectory</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dead-zone-concept">Dead Zone Concept</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#2043-input-functions">2043 - Input Functions</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#2044-speed-select-table">2044 - Speed Select Table</a>
@@ -279,7 +285,7 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Array</li>
-<li><strong>Description:</strong> Device type identification</li>
+<li><strong>Description:</strong> This object indicates the Device type identification.</li>
 </ul>
 <table>
 <thead>
@@ -315,9 +321,8 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED8</li>
 <li><strong>ObjectCode:</strong> Variable</li>
-<li><strong>Description:</strong> Bitfield with error types</li>
+<li><strong>Description:</strong> This object indicates the current error status of the device. Each bit represents a different error category:</li>
 </ul>
-<p>This object indicates the current error status of the device. Each bit represents a different error category:</p>
 <table>
 <thead>
 <tr>
@@ -386,7 +391,7 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Variable</li>
-<li><strong>Description:</strong> Manufacturer specific status information</li>
+<li><strong>Description:</strong> This object indicates the Manufacturer specific status information</li>
 </ul>
 <table>
 <thead>
@@ -414,9 +419,8 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Array</li>
-<li><strong>Description:</strong> Last 8 error history</li>
+<li><strong>Description:</strong> This object stores the last 8 errors that occurred in the device. Error codes indicate different types of faults:</li>
 </ul>
-<p>This object stores the last 8 errors that occurred in the device. Error codes indicate different types of faults:</p>
 <table>
 <thead>
 <tr>
@@ -537,9 +541,8 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Variable</li>
-<li><strong>Description:</strong> COB-ID of the synchronization object (SYNC)</li>
+<li><strong>Description:</strong> This object indicates the configured COB-ID of the synchronization object (SYNC) and defines whether the CANopen device generates the SYNC.</li>
 </ul>
-<p>This object indicates the configured COB-ID of the synchronization object (SYNC) and defines whether the CANopen device generates the SYNC.</p>
 <table>
 <thead>
 <tr>
@@ -566,7 +569,7 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Variable</li>
-<li><strong>Description:</strong> SYNC communication cycle period</li>
+<li><strong>Description:</strong> This object controls the SYNC communication cycle period</li>
 </ul>
 <table>
 <thead>
@@ -594,7 +597,7 @@
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Variable</li>
-<li><strong>Description:</strong> Synchronous PDO transmission window</li>
+<li><strong>Description:</strong> This object controls the Synchronous PDO transmission window</li>
 </ul>
 <table>
 <thead>
@@ -2989,7 +2992,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 <ul>
 <li><strong>DataType:</strong> UNSIGNED8</li>
 <li><strong>ObjectCode:</strong> Record</li>
-<li><strong>Description:</strong> Position trajectory generation parameters</li>
+<li><strong>Description:</strong> This object controls the position trajectory parameters. It defines deadband zones that prevent unnecessary movement when the position target is very close to the current position.</li>
 </ul>
 <table>
 <thead>
@@ -3029,6 +3032,26 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 </tbody>
 </table>
+<h2 id="dead-zone-concept">Dead Zone Concept</h2>
+<p>The position trajectory dead zone prevents the motor from making unnecessary small movements when the target position is very close to the current position. This is particularly useful for:</p>
+<ul>
+<li><strong>Reducing mechanical wear</strong> from constant micro-adjustments</li>
+<li><strong>Eliminating oscillations</strong> around the target position</li>
+<li><strong>Improving system stability</strong> in positioning applications</li>
+<li><strong>Reducing power consumption</strong> from unnecessary movements</li>
+</ul>
+<h3 id="how-it-works">How It Works</h3>
+<ul>
+<li>
+<p><strong>Error Detection</strong>: If the position error (difference between target and actual position) falls within the dead zone range, no movement command is generated</p>
+</li>
+<li>
+<p><strong>Position Window</strong>: The dead zone creates a "window" around the target position where the system considers itself "in position"</p>
+</li>
+<li>
+<p><strong>Threshold Activation</strong>: Only when the position error exceeds the dead zone limits will the trajectory generator create movement commands</p>
+</li>
+</ul>
 <h2 id="2043-input-functions">2043 - Input Functions</h2>
 <ul>
 <li><strong>DataType:</strong> UNSIGNED8</li>
