@@ -11,6 +11,7 @@ The Q-Drives C7 controller supports multiple CANopen operation modes designed fo
 **Configuration Objects:** <br>
 - **Modes of operation (6060h)**: Set the desired operation mode <br>
 - **Modes of operation display (6061h)**: Shows the current active mode <br>
+- **Supported homing methods (60e3h)**: Indicates which homing methods are available <br>
 - **Supported drive modes (6502h)**: Indicates which modes are available <br>
 
 **Important Notes:**
@@ -91,6 +92,7 @@ Establish absolute position reference using various homing methods.
 | Home offset | 607Ch | Offset from home position |
 | Homing speeds | 6099h | Search and zero speeds |
 | Homing acceleration | 609Ah | Acceleration during homing |
+| Supported homing methods| 60e3h | Available Homing Methods |
 
 ### Control Sequence
 1. Set homing method (6098h)
