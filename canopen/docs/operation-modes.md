@@ -79,9 +79,9 @@ Establish absolute position reference using various homing methods.
 ### Common Homing Methods
 | Method | Description                      |
 |--------|----------------------------------|
-| -4/-3  | Positiv/Netativ Mechanical Limit |
+| -4/-3  | Positiv/Negativ Mechanical Limit |
 | 17/18  | Positiv/Negativ Limit Switch     |
-| 19/20  | Positiv Home Switch              |
+| 19/20  | Positiv Home Switch     |
 | 21/22  | Negativ Home Switch              |
 | 37     | Homing Current Position          |
 
