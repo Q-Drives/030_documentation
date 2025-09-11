@@ -1247,7 +1247,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | Digital inputs | UNSIGNED32 | - | ro | 1 (TPDO only) |
 
-## 60fd - digital outputs
+## 60fe - digital outputs
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Array
@@ -1285,7 +1285,8 @@ For additional support beyond this documentation:
 |---------|------|---------|------------------|
 | 0.1 | 15.11.2024 | Initial release | 2.01.6 |
 | 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
-| 1.1 | 11.09.2025 | Update Object Dictionary | 2.01.6 |
+| 1.2 | 11.09.2025 | Update Object Dictionary | 2.01.6 |
+
 ---
 
 **Document Information:** <br>
