@@ -195,6 +195,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6061-modes_of_operation_display">6061 - modes_of_operation_display</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6062-position_demand_value">6062 - position_demand_value</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#6064-position_actual_value">6064 - position_actual_value</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6079-dc_link_circuit_voltage">6079 - dc_link_circuit_voltage</a>
@@ -217,9 +219,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6086-profile-type">6086 - profile type</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#6093-position-factor">6093 - position factor</a>
+    <li class="toctree-l2"><a class="reference internal" href="#608f-position-encoder-resolution">608f - position encoder resolution</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#6094-velocity-encoder-factor">6094 - velocity encoder factor</a>
+    <li class="toctree-l2"><a class="reference internal" href="#6090-velocity-encoder-resolution">6090 - velocity encoder resolution</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6091-gear-ratio">6091 - Gear ratio</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6092-feed-constant">6092 - Feed constant</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6096-velocity-factor">6096 - Velocity Factor</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6097-acceleration-factor">6097 - acceleration factor</a>
     </li>
@@ -234,6 +242,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#60c6-max-deceleration">60c6 - max deceleration</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#60e3-supported-homing-methods">60e3 - supported homing methods</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#60fd-digital-inputs">60fd - digital inputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#60fd-digital-outputs">60fd - digital outputs</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6502-supported-drive-modes">6502 - supported drive modes</a>
     </li>
@@ -3996,6 +4008,34 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 </tbody>
 </table>
+<h2 id="6062-position_demand_value">6062 - position_demand_value</h2>
+<ul>
+<li><strong>DataType:</strong> INTEGER32</li>
+<li><strong>ObjectCode:</strong> Variable</li>
+<li><strong>Description:</strong> This object provides the demanded position value. The value shall be given in user-defined position units according to the CiA 402 standard.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>position_demand_value</td>
+<td>INTEGER32</td>
+<td>-</td>
+<td>ro</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <h2 id="6064-position_actual_value">6064 - position_actual_value</h2>
 <ul>
 <li><strong>DataType:</strong> INTEGER32</li>
@@ -4320,11 +4360,11 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 </tbody>
 </table>
-<h2 id="6093-position-factor">6093 - position factor</h2>
+<h2 id="608f-position-encoder-resolution">608f - position encoder resolution</h2>
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Array</li>
-<li><strong>Description:</strong> This object defines scaling factors that convert between position units used internally by the drive and the position units presented to the user or higher-level control systems according to the CiA 402 standard. It establishes the mathematical relationship for proper position value interpretation and scaling based on encoder feedback and mechanical system characteristics.</li>
+<li><strong>Description:</strong> This object indicates the configured encoder increments and the number of motor revolutions according to the CiA 402 standard.</li>
 </ul>
 <table>
 <thead>
@@ -4348,27 +4388,27 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 <tr>
 <td>0x01</td>
-<td>numerator</td>
+<td>Encoder increments</td>
 <td>UNSIGNED32</td>
 <td>1</td>
-<td>rww</td>
-<td>1</td>
+<td>rw</td>
+<td>0</td>
 </tr>
 <tr>
 <td>0x02</td>
-<td>feed constant</td>
+<td>Motor revolutions</td>
 <td>UNSIGNED32</td>
 <td>1</td>
-<td>rww</td>
-<td>1</td>
+<td>rw</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<h2 id="6094-velocity-encoder-factor">6094 - velocity encoder factor</h2>
+<h2 id="6090-velocity-encoder-resolution">6090 - velocity encoder resolution</h2>
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
 <li><strong>ObjectCode:</strong> Array</li>
-<li><strong>Description:</strong> This object defines scaling factors that convert between velocity units used internally by the drive and the velocity units presented to the user or higher-level control systems according to the CiA 402 standard. It establishes the mathematical relationship for proper velocity value interpretation and scaling based on encoder feedback.</li>
+<li><strong>Description:</strong> This object indicates the configured encoder increments per second and the motor revolutions per second according to the CiA 402 standard.</li>
 </ul>
 <table>
 <thead>
@@ -4392,7 +4432,139 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 <tr>
 <td>0x01</td>
-<td>numerator</td>
+<td>Encoder increments per second</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>Motor revolutions per second</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6091-gear-ratio">6091 - Gear ratio</h2>
+<ul>
+<li><strong>DataType:</strong> UNSIGNED32</li>
+<li><strong>ObjectCode:</strong> Array</li>
+<li><strong>Description:</strong> This object indicates the configured number of motor shaft revolutions and the number of driving shaft revolutions according to the CiA 402 standard.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>Highest sub-index supported</td>
+<td>UNSIGNED8</td>
+<td>2</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>Motor shaft revolutions</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>Driving shaft revolutions</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6092-feed-constant">6092 - Feed constant</h2>
+<ul>
+<li><strong>DataType:</strong> UNSIGNED32</li>
+<li><strong>ObjectCode:</strong> Array</li>
+<li><strong>Description:</strong> This object indicates the configured feed constant, which is the measurement distance per one revolution of the driving shaft of the gearbox according to the CiA 402 standard.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>Highest sub-index supported</td>
+<td>UNSIGNED8</td>
+<td>2</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>Feed</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>Shaft revolutions</td>
+<td>UNSIGNED32</td>
+<td>1</td>
+<td>rw</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6096-velocity-factor">6096 - Velocity Factor</h2>
+<ul>
+<li><strong>DataType:</strong> UNSIGNED32</li>
+<li><strong>ObjectCode:</strong> Array</li>
+<li><strong>Description:</strong> This object can be used to match the velocity units to the user-defined velocity units according to the CiA 402 standard.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>Highest sub-index supported</td>
+<td>UNSIGNED8</td>
+<td>2</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>Numerator</td>
 <td>UNSIGNED32</td>
 <td>1</td>
 <td>rww</td>
@@ -4400,7 +4572,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 <tr>
 <td>0x02</td>
-<td>divisor</td>
+<td>Divisor</td>
 <td>UNSIGNED32</td>
 <td>1</td>
 <td>rww</td>
@@ -4439,16 +4611,16 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 <td>numerator</td>
 <td>UNSIGNED32</td>
 <td>1</td>
-<td>rww</td>
-<td>1</td>
+<td>rw</td>
+<td>0</td>
 </tr>
 <tr>
 <td>0x02</td>
 <td>divisor</td>
 <td>UNSIGNED32</td>
 <td>1</td>
-<td>rww</td>
-<td>1</td>
+<td>rw</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
@@ -4708,6 +4880,78 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 </tr>
 </tbody>
 </table>
+<h2 id="60fd-digital-inputs">60fd - digital inputs</h2>
+<ul>
+<li><strong>DataType:</strong> UNSIGNED32</li>
+<li><strong>ObjectCode:</strong> Variable</li>
+<li><strong>Description:</strong> This object shows the amount of digital inputs on the specific device.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>Digital inputs</td>
+<td>UNSIGNED32</td>
+<td>-</td>
+<td>ro</td>
+<td>1 (TPDO only)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="60fd-digital-outputs">60fd - digital outputs</h2>
+<ul>
+<li><strong>DataType:</strong> UNSIGNED32</li>
+<li><strong>ObjectCode:</strong> Array</li>
+<li><strong>Description:</strong>  This object shows the amount of digital output and the related bit mask on the specific device.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sub-Index</th>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Default Value</th>
+<th>Access Type</th>
+<th>PDO Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>Highest sub-index supported</td>
+<td>UNSIGNED8</td>
+<td>29</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>Physical outputs</td>
+<td>UNSIGNED32</td>
+<td>0</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>Bit mask</td>
+<td>UNSIGNED32</td>
+<td>0</td>
+<td>ro</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="6502-supported-drive-modes">6502 - supported drive modes</h2>
 <ul>
 <li><strong>DataType:</strong> UNSIGNED32</li>
@@ -4767,9 +5011,20 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 <td>Add Operation Modes</td>
 <td>2.01.6</td>
 </tr>
+<tr>
+<td>1.1</td>
+<td>11.09.2025</td>
+<td>Update Object Dictionary</td>
+<td>2.01.6</td>
+</tr>
+<tr>
+<td>---</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<hr />
 <p><strong>Document Information:</strong> <br>
 - <strong>Firmware Compatibility</strong>: 2.01.6 and later <br>
 - <strong>Standards</strong>: CiA 301, CiA 402 compliant</p>

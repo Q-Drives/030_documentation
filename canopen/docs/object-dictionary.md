@@ -971,6 +971,16 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | modes_of_operation_display | INTEGER8 | - | ro | 1 |
 
+## 6062 - position_demand_value
+
+- **DataType:** INTEGER32
+- **ObjectCode:** Variable
+- **Description:** This object provides the demanded position value. The value shall be given in user-defined position units according to the CiA 402 standard.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | position_demand_value | INTEGER32 | - | ro | 1 |
+
 ## 6064 - position_actual_value
 
 - **DataType:** INTEGER32
@@ -1084,29 +1094,65 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | profile type | INTEGER16 | 0 | ro | 1 |
 
-## 6093 - position factor
+## 608f - position encoder resolution
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Array
-- **Description:** This object defines scaling factors that convert between position units used internally by the drive and the position units presented to the user or higher-level control systems according to the CiA 402 standard. It establishes the mathematical relationship for proper position value interpretation and scaling based on encoder feedback and mechanical system characteristics.
+- **Description:** This object indicates the configured encoder increments and the number of motor revolutions according to the CiA 402 standard.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
-| 0x01 | numerator | UNSIGNED32 | 1 | rww | 1 |
-| 0x02 | feed constant | UNSIGNED32 | 1 | rww | 1 |
+| 0x01 | Encoder increments | UNSIGNED32 | 1 | rw | 0 |
+| 0x02 | Motor revolutions | UNSIGNED32 | 1 | rw | 0 |
 
-## 6094 - velocity encoder factor
+## 6090 - velocity encoder resolution
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Array
-- **Description:** This object defines scaling factors that convert between velocity units used internally by the drive and the velocity units presented to the user or higher-level control systems according to the CiA 402 standard. It establishes the mathematical relationship for proper velocity value interpretation and scaling based on encoder feedback.
+- **Description:** This object indicates the configured encoder increments per second and the motor revolutions per second according to the CiA 402 standard.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
-| 0x01 | numerator | UNSIGNED32 | 1 | rww | 1 |
-| 0x02 | divisor | UNSIGNED32 | 1 | rww | 1 |
+| 0x01 | Encoder increments per second | UNSIGNED32 | 1 | rw | 0 |
+| 0x02 | Motor revolutions per second| UNSIGNED32 | 1 | rw | 0 |
+
+## 6091 - Gear ratio
+
+- **DataType:** UNSIGNED32
+- **ObjectCode:** Array
+- **Description:** This object indicates the configured number of motor shaft revolutions and the number of driving shaft revolutions according to the CiA 402 standard.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
+| 0x01 | Motor shaft revolutions | UNSIGNED32 | 1 | rw | 0 |
+| 0x02 | Driving shaft revolutions | UNSIGNED32 | 1 | rw | 0 |
+
+## 6092 - Feed constant
+
+- **DataType:** UNSIGNED32
+- **ObjectCode:** Array
+- **Description:** This object indicates the configured feed constant, which is the measurement distance per one revolution of the driving shaft of the gearbox according to the CiA 402 standard.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
+| 0x01 | Feed | UNSIGNED32 | 1 | rw | 0 |
+| 0x02 | Shaft revolutions | UNSIGNED32 | 1 | rw | 0 |
+
+## 6096 - Velocity Factor
+
+- **DataType:** UNSIGNED32
+- **ObjectCode:** Array
+- **Description:** This object can be used to match the velocity units to the user-defined velocity units according to the CiA 402 standard.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
+| 0x01 | Numerator | UNSIGNED32 | 1 | rww | 1 |
+| 0x02 | Divisor | UNSIGNED32 | 1 | rww | 1 |
 
 ## 6097 - acceleration factor
 
@@ -1117,8 +1163,8 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
 | 0x00 | Highest sub-index supported | UNSIGNED8 | 2 | ro | 0 |
-| 0x01 | numerator | UNSIGNED32 | 1 | rww | 1 |
-| 0x02 | divisor | UNSIGNED32 | 1 | rww | 1 |
+| 0x01 | numerator | UNSIGNED32 | 1 | rw | 0 |
+| 0x02 | divisor | UNSIGNED32 | 1 | rw | 0 |
 
 ## 6098 - homing method
 
@@ -1191,6 +1237,28 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 | 0x08 | 8th supported homing method | INTEGER8 | 22 | ro | 0 |
 | 0x09 | 9th supported homing method | INTEGER8 | 37 | ro | 0 |
 
+## 60fd - digital inputs
+
+- **DataType:** UNSIGNED32
+- **ObjectCode:** Variable
+- **Description:** This object shows the amount of digital inputs on the specific device.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | Digital inputs | UNSIGNED32 | - | ro | 1 (TPDO only) |
+
+## 60fd - digital outputs
+
+- **DataType:** UNSIGNED32
+- **ObjectCode:** Array
+- **Description:**  This object shows the amount of digital output and the related bit mask on the specific device.
+
+| Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
+|-----------|-----------|-----------|---------------|-------------|-------------|
+| 0x00 | Highest sub-index supported | UNSIGNED8 | 29 | ro | 0 |
+| 0x01 | Physical outputs | UNSIGNED32 | 0 | ro | 0 |
+| 0x02 | Bit mask | UNSIGNED32 | 0 | ro | 0 |
+
 ## 6502 - supported drive modes
 
 - **DataType:** UNSIGNED32
@@ -1217,7 +1285,7 @@ For additional support beyond this documentation:
 |---------|------|---------|------------------|
 | 0.1 | 15.11.2024 | Initial release | 2.01.6 |
 | 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
-
+| 1.1 | 11.09.2025 | Update Object Dictionary | 2.01.6 |
 ---
 
 **Document Information:** <br>
