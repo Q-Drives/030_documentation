@@ -165,5 +165,5 @@ For additional support beyond this documentation:
 ---
 
 **Document Information:** <br>
-- **Firmware Compatibility**: 2.01.6 and later <br>
+- **Firmware Compatibility**: 2.2.1 and later <br>
 - **Standards**: CiA 301, CiA 402 compliant
