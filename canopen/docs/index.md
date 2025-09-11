@@ -153,12 +153,14 @@ For additional support beyond this documentation:
 ---
 
 ### Version History
-| Version | Date       | Changes                    | Firmware Version |
-|---------|------------|----------------------------|------------------|
-| 0.1     | 15.11.2024 | Initial release            | 2.01.6           |
-| 1.1     | 11.08.2025 | Add Operation Modes        | 2.01.6           |
-| 1.2     | 11.09.2025 | Update Object Dictionary   | 2.01.6           |
-| 1.3     | 11.09.2025 | Update operation modes     | 2.01.6           |
+| Version | Date       | Changes                    | Firmware Version   |
+|---------|------------|----------------------------|--------------------|
+| Version | Date       | Changes                    | Firmware Version   |
+|---------|------------|----------------------------|--------------------|
+| 0.1     | 15.11.2024 | Initial release            | 2.01.6             |
+| 1.1     | 11.08.2025 | Add Operation Modes        | 2.01.6             |
+| 1.2     | 11.09.2025 | Update Object Dictionary   | 2.2.1 Build 108-25 |
+| 1.3     | 11.09.2025 | Update operation modes     | 2.2.1 Build 108-25 |
 
 ---
 
