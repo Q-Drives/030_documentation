@@ -1241,7 +1241,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Variable
-- **Description:** This object shows the amount of digital inputs on the specific device.
+- **Description:** This object provides digital inputs. This object shall represent the logical input levels.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
@@ -1251,7 +1251,7 @@ Assign physical hall signals to control inputs. Active when Block commutation is
 
 - **DataType:** UNSIGNED32
 - **ObjectCode:** Array
-- **Description:**  This object shows the amount of digital output and the related bit mask on the specific device.
+- **Description:**  This object shall command the digital outputs. This object shall represent the logical output levels.
 
 | Sub-Index | Parameter | Data Type | Default Value | Access Type | PDO Mapping |
 |-----------|-----------|-----------|---------------|-------------|-------------|
