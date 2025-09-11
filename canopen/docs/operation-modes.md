@@ -27,14 +27,23 @@ The Q-Drives C7 controller supports multiple CANopen operation modes designed fo
 Point-to-point positioning with built-in trajectory generation for precise positioning applications.
 
 ### Essential Objects
-| Object                  | Index | Description |
-|-------------------------|-------|-------------|
-| Position target value   | 607Ah | Commanded position (absolute/relative) |
-| Profile velocity        | 6081h | Maximum velocity during motion |
-| Profile acceleration    | 6083h | Acceleration rate |
-| Profile deceleration    | 6084h | Deceleration rate |
-| Profile type            | 6086h | Type of trajectory (0=linear, 1=sin², etc.) |
-| Software position limit | 607Dh | Min/max position limits |
+| Object                      | Index | Description                                  |
+|-----------------------------|-------|----------------------------------------------|
+| Position Trajectory         | 2042h | Parameters for position trajectory           |
+| Position Select Table       | 2045h | Predefined position values for selection     |
+| Position target value       | 607Ah | Commanded position (absolute/relative)       |
+| Position demand value       | 6062h | Demanded position value                      |
+| Position actual value       | 6064h | Demanded position value                      |
+| Software position limit     | 607Dh | Min/max position limits                      |
+| Max profile velocity        | 607fh | Maximum velocity limit                       |
+| Profile velocity            | 6081h | Maximum velocity during motion               |
+| Profile acceleration        | 6083h | Acceleration rate                            |
+| Profile deceleration        | 6084h | Deceleration rate                            |
+| Profile type                | 6086h | Type of trajectory (0=linear, 1=sin², etc.)  |
+| Position encoder resolution | 608fh | Configuration of position encoder resolution |
+| Gear ratio                  | 6091h | Configuration of gear ratio                  |
+| Feed constant               | 6092h | Configuration of feed constant               |
+
 
 ### Control Sequence
 1. Set target position (607Ah)
@@ -50,13 +59,22 @@ Point-to-point positioning with built-in trajectory generation for precise posit
 Simple velocity control with ramp functions, designed for frequency inverter-style applications.
 
 ### Essential Objects
-| Object | Index | Description |
-|--------|-------|-------------|
-| vl target velocity | 6042h | Desired velocity setpoint |
-| vl velocity actual value | 6044h | Current velocity feedback |
-| vl velocity acceleration | 6048h | Acceleration ramp settings |
-| vl velocity deceleration | 6049h | Deceleration ramp settings |
-| vl velocity min max amount | 6046h | Velocity limits |
+| Object                      | Index | Description                                  |
+|-----------------------------|-------|----------------------------------------------|
+| Speed Trajectory            | 2041h | Parameters for speed trajectory              |
+| Speed Select Table          | 2044h | Predefined speed values for selection        |
+| vl target velocity          | 6042h | Desired velocity setpoint                    |
+| vl velocity demand          | 6043h | Demanded velocity endpoint                   |
+| vl velocity actual value    | 6044h | Current velocity feedback                    |
+| vl velocity min max amount  | 6046h | Velocity limits                              |
+| vl velocity acceleration    | 6048h | Acceleration ramp settings                   |
+| vl velocity deceleration    | 6049h | Deceleration ramp settings                   |
+| Max motor speed             | 6080h | Maximum rotational speed                     |
+| velocity encoder resolution | 6090h | Configuration of velocity encoder resolution |
+| Gear ratio                  | 6091h | Configuration of gear ratio                  |
+| Feed constant               | 6092h | Configuration of feed constant               |
+| Velocity Factor             | 6096h | User-defined Velocity units                  |
+| Acceleration factor         | 6097h | Defines scaling factors for acceleration     |
 
 ### Control Bits
 - **Bit 4**: Enable ramp (0=other control, 1=ramp follows input)
@@ -79,20 +97,23 @@ Establish absolute position reference using various homing methods.
 ### Common Homing Methods
 | Method | Description                      |
 |--------|----------------------------------|
-| -4/-3  | Positiv/Negativ Mechanical Limit |
+| -1/-2  | Positiv/Negativ Mechanical Limit |
 | 17/18  | Positiv/Negativ Limit Switch     |
-| 19/20  | Positiv Home Switch     |
+| 19/20  | Positiv Home Switch              |
 | 21/22  | Negativ Home Switch              |
 | 37     | Homing Current Position          |
 
 ### Essential Objects
-| Object | Index | Description |
-|--------|-------|-------------|
-| Homing method | 6098h | Selected homing method |
-| Home offset | 607Ch | Offset from home position |
-| Homing speeds | 6099h | Search and zero speeds |
-| Homing acceleration | 609Ah | Acceleration during homing |
-| Supported homing methods| 60e3h | Available Homing Methods |
+| Object                  | Index | Description                        |
+|-------------------------|-------|------------------------------------|
+| Homing                  | 2033h | Configuration for homing procedure |
+| Home offset             | 607Ch | Offset from home position          |
+| Homing method           | 6098h | Selected homing method             |
+| Gear ratio              | 6091h | Configuration of gear ratio        |
+| Feed constant           | 6092h | Configuration of feed constant     |
+| Homing speeds           | 6099h | Search and zero speeds             |
+| Homing acceleration     | 609Ah | Acceleration during homing         |
+| Supported homing methods| 60e3h | Available Homing Methods           |
 
 ### Control Sequence
 1. Set homing method (6098h)
@@ -112,11 +133,12 @@ For additional support beyond this documentation:
 ---
 
 ### Version History
-| Version | Date | Changes | Firmware Version |
-|---------|------|---------|------------------|
-| 0.1 | 15.11.2024 | Initial release | 2.01.6 |
-| 1.1 | 11.08.2025 | Add Operation Modes | 2.01.6 |
-| 1.2 | 11.09.2025 | Update Object Dictionary | 2.01.6 |
+| Version | Date       | Changes                    | Firmware Version |
+|---------|------------|----------------------------|------------------|
+| 0.1     | 15.11.2024 | Initial release            | 2.01.6           |
+| 1.1     | 11.08.2025 | Add Operation Modes        | 2.01.6           |
+| 1.2     | 11.09.2025 | Update Object Dictionary   | 2.01.6           |
+| 1.3     | 11.09.2025 | Update operation modes     | 2.01.6           |
 ---
 
 **Document Information:** <br>
