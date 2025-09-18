@@ -103,7 +103,7 @@ Establish absolute position reference using various homing methods.
 | 21/22  | Negativ Home Switch              |
 | 37     | Homing Current Position          |
 
-### Negativ/Positiv Mechanical Limit
+### Method: Negativ/Positiv Mechanical Limit
 ![Homing](Homing_1.png)
 <strong>Figure 1</strong></br></br>
 Using this method as shown in Figure 1, the initial direction of movement shall be leftward if
@@ -113,7 +113,7 @@ the negative limit switch is inactive (here: low). The home position shall be at
 Using this method as shown in Figure 2, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
-### Negativ/Positiv Limit Limit
+### Method: Negativ/Positiv Limit Limit
 ![Homing](Homing_1.png)
 <strong>Figure 3</strong></br></br>
 Using this method as shown in Figure 3, the initial direction of movement shall be leftward if
@@ -123,7 +123,7 @@ the negative limit switch is inactive (here: low). The home position shall be at
 Using this method as shown in Figure 4, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
-### Homing Current Position
+### Method: Homing Current Position
 Using this method, the position of home shall be at the initial position.
 
 ### Essential Objects
@@ -158,12 +158,11 @@ For additional support beyond this documentation:
 ### Version History
 | Version | Date       | Changes                    | Firmware Version   |
 |---------|------------|----------------------------|--------------------|
-| Version | Date       | Changes                    | Firmware Version   |
-|---------|------------|----------------------------|--------------------|
 | 0.1     | 15.11.2024 | Initial release            | 2.01.6             |
 | 1.1     | 11.08.2025 | Add Operation Modes        | 2.01.6             |
 | 1.2     | 11.09.2025 | Update Object Dictionary   | 2.2.1 Build 108-25 |
 | 1.3     | 11.09.2025 | Update operation modes     | 2.2.1 Build 108-25 |
+
 ---
 
 **Document Information:** <br>
