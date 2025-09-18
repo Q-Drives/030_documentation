@@ -121,11 +121,11 @@ the positive limit switch is inactive (here: low). The position of home shall be
 
 ### Method 19/20: Positive Home Switch
 ![Homing](Homing_19_20.png)
-The initial direction of movement shall be dependent on the state of the home switch. If the initial position is situated so that the direction of movement shall reverse during homing, the point at which the reversal takes place is anywhere after a change of state of the home switch.
+Using this method as shown in Figure 5, the initial direction of movement shall be dependent on the state of the home switch. If the initial position is situated so that the direction of movement shall reverse during homing, the point at which the reversal takes place is anywhere after a change of state of the home switch.
 
 ### Method 21/22: Negative Home Switch
 ![Homing](Homing_21_22.png)
-The initial direction of movement shall be dependent on the state of the home switch. If the initial
+Using this method as shown in Figure 6, the initial direction of movement shall be dependent on the state of the home switch. If the initial
 position is situated so that the direction of movement shall reverse during homing, the point at
 which the reversal takes place is anywhere after a change of state of the home switch.
 
