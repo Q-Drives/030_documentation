@@ -89,11 +89,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#common-homing-methods">Common Homing Methods</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#method-negativpositiv-mechanical-limit">Method: Negativ/Positiv Mechanical Limit</a>
+    <li class="toctree-l3"><a class="reference internal" href="#method-1-2-negativepositive-mechanical-limit">Method -1/-2: Negative/Positive Mechanical Limit</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#method-negativpositiv-limit-limit">Method: Negativ/Positiv Limit Limit</a>
+    <li class="toctree-l3"><a class="reference internal" href="#method-1718-negativepositive-limit">Method 17/18: Negative/Positive Limit</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#method-homing-current-position">Method: Homing Current Position</a>
+    <li class="toctree-l3"><a class="reference internal" href="#method-1920-positive-home-switch">Method 19/20: Positive Home Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-2122-negative-home-switch">Method 21/22: Negative Home Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-37-homing-current-position">Method 37: Homing Current Position</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#essential-objects_2">Essential Objects</a>
     </li>
@@ -360,19 +364,19 @@
 <tbody>
 <tr>
 <td>-1/-2</td>
-<td>Negativ/Positiv Mechanical Limit</td>
+<td>Negative/Positive Mechanical Limit</td>
 </tr>
 <tr>
 <td>17/18</td>
-<td>Negativ/Positiv Limit Switch</td>
+<td>Negative/Positive Limit Switch</td>
 </tr>
 <tr>
 <td>19/20</td>
-<td>Positiv Home Switch</td>
+<td>Positive Home Switch</td>
 </tr>
 <tr>
 <td>21/22</td>
-<td>Negativ Home Switch</td>
+<td>Negative Home Switch</td>
 </tr>
 <tr>
 <td>37</td>
@@ -380,21 +384,29 @@
 </tr>
 </tbody>
 </table>
-<h3 id="method-negativpositiv-mechanical-limit">Method: Negativ/Positiv Mechanical Limit</h3>
+<h3 id="method-1-2-negativepositive-mechanical-limit">Method -1/-2: Negative/Positive Mechanical Limit</h3>
 <p><img alt="Homing" src="../Homing_1.png" />
 Using this method as shown in Figure 1, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
 <img alt="Homing" src="../Homing_2.png" />
 Using this method as shown in Figure 2, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.</p>
-<h3 id="method-negativpositiv-limit-limit">Method: Negativ/Positiv Limit Limit</h3>
+<h3 id="method-1718-negativepositive-limit">Method 17/18: Negative/Positive Limit</h3>
 <p><img alt="Homing" src="../Homing_17.png" />
 Using this method as shown in Figure 3, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
 <img alt="Homing" src="../Homing_18.png" />
 Using this method as shown in Figure 4, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.</p>
-<h3 id="method-homing-current-position">Method: Homing Current Position</h3>
+<h3 id="method-1920-positive-home-switch">Method 19/20: Positive Home Switch</h3>
+<p><img alt="Homing" src="../Homing_19_20.png" />
+The initial direction of movement shall be dependent on the state of the home switch. If the initial position is situated so that the direction of movement shall reverse during homing, the point at which the reversal takes place is anywhere after a change of state of the home switch.</p>
+<h3 id="method-2122-negative-home-switch">Method 21/22: Negative Home Switch</h3>
+<p><img alt="Homing" src="../Homing_21_22.png" />
+The initial direction of movement shall be dependent on the state of the home switch. If the initial
+position is situated so that the direction of movement shall reverse during homing, the point at
+which the reversal takes place is anywhere after a change of state of the home switch.</p>
+<h3 id="method-37-homing-current-position">Method 37: Homing Current Position</h3>
 <p><img alt="Homing" src="../Homing_37.png" />
 Using this method as shown in Figure 9, the position of home shall be at the initial position.</p>
 <h3 id="essential-objects_2">Essential Objects</h3>

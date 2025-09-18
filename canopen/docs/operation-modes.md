@@ -97,13 +97,13 @@ Establish absolute position reference using various homing methods.
 ### Common Homing Methods
 | Method | Description                      |
 |--------|----------------------------------|
-| -1/-2  | Negativ/Positiv Mechanical Limit |
-| 17/18  | Negativ/Positiv Limit Switch     |
-| 19/20  | Positiv Home Switch              |
-| 21/22  | Negativ Home Switch              |
+| -1/-2  | Negative/Positive Mechanical Limit |
+| 17/18  | Negative/Positive Limit Switch     |
+| 19/20  | Positive Home Switch              |
+| 21/22  | Negative Home Switch              |
 | 37     | Homing Current Position          |
 
-### Method: Negativ/Positiv Mechanical Limit
+### Method -1/-2: Negative/Positive Mechanical Limit
 ![Homing](Homing_1.png)
 Using this method as shown in Figure 1, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
@@ -111,7 +111,7 @@ the negative limit switch is inactive (here: low). The home position shall be at
 Using this method as shown in Figure 2, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
-### Method: Negativ/Positiv Limit Limit
+### Method 17/18: Negative/Positive Limit
 ![Homing](Homing_17.png)
 Using this method as shown in Figure 3, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
@@ -119,7 +119,17 @@ the negative limit switch is inactive (here: low). The home position shall be at
 Using this method as shown in Figure 4, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
-### Method: Homing Current Position
+### Method 19/20: Positive Home Switch
+![Homing](Homing_19_20.png)
+The initial direction of movement shall be dependent on the state of the home switch. If the initial position is situated so that the direction of movement shall reverse during homing, the point at which the reversal takes place is anywhere after a change of state of the home switch.
+
+### Method 21/22: Negative Home Switch
+![Homing](Homing_21_22.png)
+The initial direction of movement shall be dependent on the state of the home switch. If the initial
+position is situated so that the direction of movement shall reverse during homing, the point at
+which the reversal takes place is anywhere after a change of state of the home switch.
+
+### Method 37: Homing Current Position
 ![Homing](Homing_37.png)
 Using this method as shown in Figure 9, the position of home shall be at the initial position.
 
