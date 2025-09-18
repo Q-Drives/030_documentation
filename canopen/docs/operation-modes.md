@@ -105,26 +105,23 @@ Establish absolute position reference using various homing methods.
 
 ### Method: Negativ/Positiv Mechanical Limit
 ![Homing](Homing_1.png)
-<strong>Figure 1</strong></br></br>
 Using this method as shown in Figure 1, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
 ![Homing](Homing_2.png)
-<strong>Figure 2</strong></br></br>
 Using this method as shown in Figure 2, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
 ### Method: Negativ/Positiv Limit Limit
-![Homing](Homing_1.png)
-<strong>Figure 3</strong></br></br>
+![Homing](Homing_17.png)
 Using this method as shown in Figure 3, the initial direction of movement shall be leftward if
 the negative limit switch is inactive (here: low). The home position shall be at the first homing pulse to the right of the position where the negative limit switch becomes inactive.
-![Homing](Homing_2.png)
-<strong>Figure 4</strong></br></br>
+![Homing](Homing_18.png)
 Using this method as shown in Figure 4, the initial direction of movement shall be rightward if
 the positive limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the left of the position where the positive limit switch becomes inactive.
 
 ### Method: Homing Current Position
-Using this method, the position of home shall be at the initial position.
+![Homing](Homing_37.png)
+Using this method as shown in Figure 9, the position of home shall be at the initial position.
 
 ### Essential Objects
 | Object                  | Index | Description                        |
