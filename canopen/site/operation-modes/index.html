@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Operation Modes - Q-Drives CANopen Documentation</title>
+    <title>Operation Mode - Q-Drives CANopen Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Operation Modes";
+        var mkdocs_page_name = "Operation Mode";
         var mkdocs_page_input_path = "operation-modes.md";
         var mkdocs_page_url = null;
       </script>
@@ -53,19 +53,33 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Operation Modes</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Operation Mode</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction-basic-concepts">Introduction &amp; Basic Concepts</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#mode-selection">Mode Selection</a>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-mode-of-operation">What is Mode of Operation?</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-modes">Available Modes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-setup">Configuration &amp; Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects">Essential Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-select-a-operation-mode">How to select a operation mode?</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#he-control-device-writes-to-the-modes-of-operation-object-6060h-in-order-to-select-the-operation-mode">he control device writes to the modes of operation object (6060h) in order to select the operation mode.</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#profile-position-mode-1">Profile Position - Mode 1</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#essential-objects">Essential Objects</a>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_1">Essential Objects</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#control-sequence">Control Sequence</a>
     </li>
@@ -75,7 +89,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_1">Essential Objects</a>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_2">Essential Objects</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#control-bits">Control Bits</a>
     </li>
@@ -99,7 +113,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#method-37-homing-current-position">Method 37: Homing Current Position</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_2">Essential Objects</a>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-objects_3">Essential Objects</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#control-sequence_1">Control Sequence</a>
     </li>
@@ -134,7 +148,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Operation Modes</li>
+      <li class="breadcrumb-item active">Operation Mode</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -144,24 +158,99 @@
             <div class="section" itemprop="articleBody">
               
                 <p><img alt="" src="../logo-horizontal.jpg" /></p>
-<h1 id="operation-modes">Operation Modes</h1>
-<h2 id="overview">Overview</h2>
-<p>The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.</p>
-<h3 id="mode-selection">Mode Selection</h3>
-<p><strong>Configuration Objects:</strong> <br>
-- <strong>Modes of operation (6060h)</strong>: Set the desired operation mode <br>
-- <strong>Modes of operation display (6061h)</strong>: Shows the current active mode <br>
-- <strong>Supported homing methods (60e3h)</strong>: Indicates which homing methods are available <br>
-- <strong>Supported drive modes (6502h)</strong>: Indicates which modes are available <br></p>
+<h1 id="operation-mode">Operation Mode</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#introduction--basic-concepts">Introduction &amp; Basic Concepts</a></li>
+<li><a href="#available-modes">Available Modes</a></li>
+<li><a href="#configuration--setup">Configuration &amp; Setup</a></li>
+</ul>
+<h2 id="introduction-basic-concepts">Introduction &amp; Basic Concepts</h2>
+<h3 id="what-is-mode-of-operation">What is Mode of Operation?</h3>
+<p>The Q-Drives controller behavior depends on the activated mode of operation. The device may implement several modes of operation. Since it is not possible to operate the modes in parallel, the user is able to activate the required function by selecting a mode of operation. The control device writes to the modes of operation object <strong>(6060h)</strong> in order to select the operation mode. The drive device provides the modes of operation display object <strong>(6061h)</strong> to indicate the actual activated operation mode. Controlword, statusword, and set-points are used mode-specific. This implies the responsibility of the control device to avoid inconsistencies and erroneous behavior. The switching between the modes of operation implies no automatic reconfiguration of COBs for real-time data transmission. Therefore, the PDS may limit mode switching in one or some PDS FSA state(s). Mode switching may also be limited to the 'local control' function; this means it is not possible to select the operation mode via the network.</p>
 <p><strong>Important Notes:</strong>
 - Mode changes typically require the device to be in Pre-operational state
 - Not all modes may be supported on every device variant
 - Check object 6502h to verify available modes before attempting to switch</p>
 <hr />
+<h2 id="available-modes">Available Modes</h2>
+<p>The following modes of operation are implemented:<br></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Selector</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profile Position Mode</td>
+<td>1</td>
+<td>Mode for Positioning</td>
+</tr>
+<tr>
+<td>Velocity Mode</td>
+<td>2</td>
+<td>Mode for Traction</td>
+</tr>
+<tr>
+<td>Homing Mode</td>
+<td>6</td>
+<td>Mode for select a Homing Position</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="configuration-setup">Configuration &amp; Setup</h2>
+<h3 id="essential-objects">Essential Objects</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Index</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modes of operation</td>
+<td>6060h</td>
+<td>Set the desired operation mode</td>
+</tr>
+<tr>
+<td>Modes of operation display</td>
+<td>6061h</td>
+<td>Shows the current active mode</td>
+</tr>
+<tr>
+<td>Supported homing methods</td>
+<td>60e3h</td>
+<td>Indicates which homing methods are available</td>
+</tr>
+<tr>
+<td>Supported drive modes</td>
+<td>6502h</td>
+<td>Indicates which modes are available</td>
+</tr>
+<tr>
+<td>Controlword</td>
+<td>6040h</td>
+<td>Indicates the received command controlling the state machine</td>
+</tr>
+<tr>
+<td>Statusword</td>
+<td>6041h</td>
+<td>Provides the status of the state machine</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-select-a-operation-mode">How to select a operation mode?</h3>
+<h2 id="he-control-device-writes-to-the-modes-of-operation-object-6060h-in-order-to-select-the-operation-mode">he control device writes to the modes of operation object (6060h) in order to select the operation mode.</h2>
 <h2 id="profile-position-mode-1">Profile Position - Mode 1</h2>
 <h3 id="description">Description</h3>
 <p>Point-to-point positioning with built-in trajectory generation for precise positioning applications.</p>
-<h3 id="essential-objects">Essential Objects</h3>
+<h3 id="essential-objects_1">Essential Objects</h3>
 <table>
 <thead>
 <tr>
@@ -254,7 +343,7 @@
 <h2 id="velocity-mode-mode-2">Velocity Mode - Mode 2</h2>
 <h3 id="description_1">Description</h3>
 <p>Simple velocity control with ramp functions, designed for frequency inverter-style applications.</p>
-<h3 id="essential-objects_1">Essential Objects</h3>
+<h3 id="essential-objects_2">Essential Objects</h3>
 <table>
 <thead>
 <tr>
@@ -409,7 +498,7 @@ which the reversal takes place is anywhere after a change of state of the home s
 <h3 id="method-37-homing-current-position">Method 37: Homing Current Position</h3>
 <p><img alt="Homing" src="../Homing_37.png" />
 Using this method as shown in Figure 9, the position of home shall be at the initial position.</p>
-<h3 id="essential-objects_2">Essential Objects</h3>
+<h3 id="essential-objects_3">Essential Objects</h3>
 <table>
 <thead>
 <tr>

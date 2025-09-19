@@ -1,24 +1,51 @@
 ![](logo-horizontal.jpg)
 
-# Operation Modes
+# Operation Mode
 
-## Overview
+## Table of Contents
+- [Introduction & Basic Concepts](#introduction--basic-concepts)
+- [Available Modes](#available-modes)
+- [Configuration & Setup](#configuration--setup)
+## Introduction & Basic Concepts
 
-The Q-Drives C7 controller supports multiple CANopen operation modes designed for different motion control applications. Each mode provides specific functionality tailored to particular use cases, from simple velocity control to complex multi-axis coordination.
+### What is Mode of Operation?
 
-### Mode Selection
-
-**Configuration Objects:** <br>
-- **Modes of operation (6060h)**: Set the desired operation mode <br>
-- **Modes of operation display (6061h)**: Shows the current active mode <br>
-- **Supported homing methods (60e3h)**: Indicates which homing methods are available <br>
-- **Supported drive modes (6502h)**: Indicates which modes are available <br>
+The Q-Drives controller behavior depends on the activated mode of operation. The device may implement several modes of operation. Since it is not possible to operate the modes in parallel, the user is able to activate the required function by selecting a mode of operation. The control device writes to the modes of operation object <strong>(6060h)</strong> in order to select the operation mode. The drive device provides the modes of operation display object <strong>(6061h)</strong> to indicate the actual activated operation mode. Controlword, statusword, and set-points are used mode-specific. This implies the responsibility of the control device to avoid inconsistencies and erroneous behavior. The switching between the modes of operation implies no automatic reconfiguration of COBs for real-time data transmission. Therefore, the PDS may limit mode switching in one or some PDS FSA state(s). Mode switching may also be limited to the 'local control' function; this means it is not possible to select the operation mode via the network.
 
 **Important Notes:**
 - Mode changes typically require the device to be in Pre-operational state
 - Not all modes may be supported on every device variant
 - Check object 6502h to verify available modes before attempting to switch
 
+---
+
+## Available Modes
+
+The following modes of operation are implemented:<br>
+
+| Mode                   | Selector | Description                       |
+|------------------------|----------|-----------------------------------|
+| Profile Position Mode  |     1    | Mode for Positioning              |
+| Velocity Mode          |     2    | Mode for Traction                 |
+| Homing Mode            |     6    | Mode for select a Homing Position |
+
+---
+
+## Configuration & Setup
+
+### Essential Objects
+| Object                     | Index | Description                                                  |
+|----------------------------|-------|--------------------------------------------------------------|
+| Modes of operation         | 6060h | Set the desired operation mode                               |
+| Modes of operation display | 6061h | Shows the current active mode                                |
+| Supported homing methods   | 60e3h | Indicates which homing methods are available                 |
+| Supported drive modes      | 6502h | Indicates which modes are available                          |
+| Controlword                | 6040h | Indicates the received command controlling the state machine |
+| Statusword                 | 6041h | Provides the status of the state machine                     |
+
+### How to select a operation mode?
+
+he control device writes to the modes of operation object (6060h) in order to select the operation mode. 
 ---
 
 ## Profile Position - Mode 1
