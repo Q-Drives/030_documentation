@@ -124,13 +124,13 @@ Establish absolute position reference using various homing methods.
 ### Common Homing Methods
 | Method | Description                      |
 |--------|----------------------------------|
-| -1/-2  | Negative/Positive Mechanical Limit |
+| -1/-2  | Negative/Positive Mechanical Stop |
 | 17/18  | Negative/Positive Limit Switch     |
 | 19/20  | Positive Home Switch              |
 | 21/22  | Negative Home Switch              |
 | 37     | Homing Current Position          |
 
-### Method -1/-2: Negative/Positive Mechanical Limit
+### Method -1/-2: Negative/Positive Mechanical Stop
 ![Homing](Homing_1.png)
 With this method, as shown in Figure 1, the direction of movement is negative until the mechanical end stop is reached. When a predefined current threshold is exceeded, the homing position is reached, and the position is set as the homing position.
 ![Homing](Homing_2.png)
