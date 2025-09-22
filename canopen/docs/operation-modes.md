@@ -132,11 +132,9 @@ Establish absolute position reference using various homing methods.
 
 ### Method -1/-2: Negative/Positive Mechanical Limit
 ![Homing](Homing_1.png)
-Using this method as shown in Figure 1, the initial direction of movement shall be leftward if
-the mechanical limit switch is inactive (here: low). The home position shall be at the first homing pulse to the left of the position where the mechanical limit switch becomes active (here: high).
+With this method, as shown in Figure 1, the direction of movement is negative until the mechanical end stop is reached. When a predefined current threshold is exceeded, the homing position is reached, and the position is set as the homing position.
 ![Homing](Homing_2.png)
-Using this method as shown in Figure 2, the initial direction of movement shall be rightward if
-the mechanical limit switch is inactive (here: low). The position of home shall be at the first homing pulse to the right of the position where the mechanical limit switch becomes active (here: high).
+With this method, as shown in Figure 2, the direction of movement is positive until the mechanical end stop is reached. When a predefined current threshold is exceeded, the homing position is reached, and the position is set as the homing position.
 
 ### Method 17/18: Negative/Positive Limit
 ![Homing](Homing_17.png)
