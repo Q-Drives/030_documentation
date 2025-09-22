@@ -4,7 +4,7 @@
 ## Table of Contents
 - [Introduction & Overview](#introduction--overview)
   - [What is CANopen?](#what-is-canopen)
-  - [Q-Drives C7 Implementation](#q-drives-c7-implementation)
+  - [Q-Drives Implementation](#q-drives-c7-implementation)
   - [Standards Compliance](#standards-compliance)
   - [Document Version Information](#document-version-information)
 - [Physical Layer & Network Setup](#physical-layer--network-setup)
@@ -49,9 +49,9 @@ CANopen is a widely adopted communication protocol based on the CAN (Controller 
 - **Robust Design**: Differential signaling provides excellent EMI resistance <br>
 - **Scalable Architecture**: Supports networks from simple point-to-point to complex multi-node systems
 
-### Q-Drives C7 Implementation
+### Q-Drives  Implementation
 
-The Q-Drives C7 controller implements CANopen according to industry standards, providing seamless integration with existing industrial automation systems.
+The Q-Drives controller implements CANopen according to industry standards, providing seamless integration with existing industrial automation systems.
 
 **Implementation Features:** <br>
 - **Full CiA 301 Compliance**: Complete application layer and communication profile <br>
@@ -62,7 +62,7 @@ The Q-Drives C7 controller implements CANopen according to industry standards, p
 
 ### Standards Compliance
 
-The C7 controller CANopen implementation adheres to the following international standards:
+The controller CANopen implementation adheres to the following international standards:
 
 | Standard | Description | Implementation Level |
 |----------|-------------|---------------------|
@@ -335,7 +335,7 @@ An Emergency message is sent whenever an error occurs in the controller that is 
 
 ### Initial Configuration
 
-On first startup, the C7 controller comes pre-configured with default settings that enable immediate network connection for basic applications.
+On first startup, the controller comes pre-configured with default settings that enable immediate network connection for basic applications.
 
 **Default Configuration:**
 - **Node-ID**: 1

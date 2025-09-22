@@ -83,7 +83,7 @@ Point-to-point positioning with built-in trajectory generation for precise posit
 ## Velocity Mode - Mode 2
 
 ### Description
-Simple velocity control with ramp functions, designed for frequency inverter-style applications.
+Simple velocity control with ramp functions.
 
 ### Essential Objects
 | Object                      | Index | Description                                  |

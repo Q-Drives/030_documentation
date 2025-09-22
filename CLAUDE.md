@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a CANopen documentation project for Q-Drives that uses MkDocs to generate static documentation from Markdown files. The project documents the CANopen Object Dictionary for C7 devices.
+This is a CANopen documentation project for Q-Drives that uses MkDocs to generate static documentation from Markdown files. The project documents the CANopen Object Dictionary.
 
 ## Project Structure
 
