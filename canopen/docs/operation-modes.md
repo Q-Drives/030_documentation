@@ -158,7 +158,7 @@ which the reversal takes place is anywhere after a change of state of the home s
 
 ### Method 37: Homing Current Position
 ![Homing](Homing_37.png)
-Using this method as shown in Figure 9, the position of home shall be at the initial position.
+Using this method as shown in Figure 7, the position of home shall be at the initial position.
 
 ### Essential Objects
 | Object                  | Index | Description                        |
