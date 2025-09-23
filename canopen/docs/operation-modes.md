@@ -45,7 +45,8 @@ The following modes of operation are implemented:<br>
 
 ### How to select a operation mode?
 
-he control device writes to the modes of operation object (6060h) in order to select the operation mode. 
+The control device writes to the modes of operation object (6060h) in order to select the operation mode. 
+
 ---
 
 ## Profile Position - Mode 1
